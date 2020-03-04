@@ -1,0 +1,17 @@
+@mixin sigsda-countdown-theme($theme) {
+
+    $foreground: map-get($theme, foreground);
+
+    sigsda-countdown {
+
+        .sigsda-countdown {
+
+            .time {
+
+                .title {
+                    color: map-get($foreground, secondary-text);
+                }
+            }
+        }
+    }
+}

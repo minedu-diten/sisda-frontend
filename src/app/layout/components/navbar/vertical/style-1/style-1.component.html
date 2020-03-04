@@ -1,0 +1,40 @@
+<div class="navbar-top" [ngClass]="sigsdaConfig.layout.navbar.secondaryBackground">
+    <div class="logo">
+        <img class="logo-icon" src="assets/images/logo-educarh-white.png">
+        <span class="logo-text primary-text">SIGSDA</span>
+    </div>
+    <div class="buttons">
+        <button mat-icon-button class="toggle-sidebar-folded" (click)="toggleSidebarFolded()" fxHide.lt-lg>
+            <mat-icon class="secondary-text">menu</mat-icon>
+        </button>
+        <button mat-icon-button class="toggle-sidebar-opened" (click)="toggleSidebarOpened()" fxHide.gt-md>
+            <mat-icon class="secondary-text">arrow_back</mat-icon>
+        </button>
+    </div>
+</div>
+
+
+<div class="navbar-scroll-container" [ngClass]="sigsdaConfig.layout.navbar.primaryBackground" sigsdaPerfectScrollbar
+    [sigsdaPerfectScrollbarOptions]="{suppressScrollX: true}">
+
+    <div class="user" fxLayout="row" [ngClass]="sigsdaConfig.layout.navbar.secondaryBackground">
+        <div class="avatar-container" [ngClass]="sigsdaConfig.layout.navbar.primaryBackground">
+            <mat-icon class="avatar" fxHide.sm>account_circle</mat-icon>
+            <!-- <img class="avatar" src="assets/images/avatars/Velazquez.jpg"> -->
+        </div>
+        <div fxLayout="column">
+            <div class="username">MARITZA YANINA MILLA TARAZONA</div>
+            <div class="email mt-2">
+                <small>
+                    <mat-icon class="success-icon">check_circle</mat-icon>Técnico de escalafón
+                </small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="navbar-content">
+        <sigsda-navigation class="material2" layout="vertical"></sigsda-navigation>
+    </div>
+
+</div>

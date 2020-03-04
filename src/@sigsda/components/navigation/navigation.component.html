@@ -1,0 +1,33 @@
+<div class="nav" [ngClass]="{'horizontal':layout === 'horizontal', 'vertical':layout === 'vertical'}">
+
+    <!-- Vertical Navigation Layout -->
+    <ng-container *ngIf="layout === 'vertical'">
+
+        <ng-container *ngFor="let item of navigation">
+
+            <sigsda-nav-vertical-group *ngIf="item.type=='group'" [item]="item"></sigsda-nav-vertical-group>
+            <sigsda-nav-vertical-collapsable *ngIf="item.type=='collapsable'"
+                                           [item]="item"></sigsda-nav-vertical-collapsable>
+            <sigsda-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></sigsda-nav-vertical-item>
+
+        </ng-container>
+
+    </ng-container>
+    <!-- / Vertical Navigation Layout -->
+
+    <!-- Horizontal Navigation Layout -->
+    <ng-container *ngIf="layout === 'horizontal'">
+
+        <ng-container *ngFor="let item of navigation">
+
+            <sigsda-nav-horizontal-collapsable *ngIf="item.type=='group'" [item]="item"></sigsda-nav-horizontal-collapsable>
+            <sigsda-nav-horizontal-collapsable *ngIf="item.type=='collapsable'"
+                                             [item]="item"></sigsda-nav-horizontal-collapsable>
+            <sigsda-nav-horizontal-item *ngIf="item.type=='item'" [item]="item"></sigsda-nav-horizontal-item>
+
+        </ng-container>
+
+    </ng-container>
+    <!-- / Horizontal Navigation Layout -->
+
+</div>

@@ -1,0 +1,18 @@
+:host {
+    display: flex;
+    flex: 0 0 auto;
+    z-index: 3;
+
+    .mat-toolbar {
+        background: #fff;
+        color: #444142;
+        border-top: 1px solid #dee2e6;   
+        font-size: 12px;
+        padding: 1rem;       
+    }
+
+    &.above {
+        position: relative;
+        z-index: 99;
+    }    
+}
