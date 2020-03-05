@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { SigsdaSharedModule } from '@sigsda/shared.module';
 
 import { NavbarComponent } from 'app/layout/components/navbar/navbar.component';
-import { NavbarVerticalStyle1Module } from 'app/layout/components/navbar/vertical/style-1/style-1.module';
+import { NavbarLeftModule } from './navbar-left/navbar-left.module';
 
 @NgModule({
     declarations: [
@@ -11,7 +11,7 @@ import { NavbarVerticalStyle1Module } from 'app/layout/components/navbar/vertica
     ],
     imports: [
         SigsdaSharedModule,
-        NavbarVerticalStyle1Module
+        NavbarLeftModule
     ],
     exports: [
         NavbarComponent

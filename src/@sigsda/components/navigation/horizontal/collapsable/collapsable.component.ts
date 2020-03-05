@@ -6,13 +6,12 @@ import { sigsdaAnimations } from '@sigsda/animations';
 import { SigsdaConfigService } from '@sigsda/services/config.service';
 
 @Component({
-    selector   : 'sigsda-nav-horizontal-collapsable',
+    selector: 'sigsda-nav-horizontal-collapsable',
     templateUrl: './collapsable.component.html',
-    styleUrls  : ['./collapsable.component.scss'],
-    animations : sigsdaAnimations
+    styleUrls: ['./collapsable.component.scss'],
+    animations: sigsdaAnimations
 })
-export class SigsdaNavHorizontalCollapsableComponent implements OnInit, OnDestroy
-{
+export class SigsdaNavHorizontalCollapsableComponent implements OnInit, OnDestroy {
     sigsdaConfig: any;
     isOpen = false;
 
@@ -22,27 +21,13 @@ export class SigsdaNavHorizontalCollapsableComponent implements OnInit, OnDestro
     @Input()
     item: any;
 
-    // Private
     private _unsubscribeAll: Subject<any>;
 
-    constructor(
-        private _sigsdaConfigService: SigsdaConfigService
-    )
-    {
-        // Set the private defaults
+    constructor(private _sigsdaConfigService: SigsdaConfigService) {
         this._unsubscribeAll = new Subject();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On init
-     */
-    ngOnInit(): void
-    {
-        // Subscribe to config changes
+    ngOnInit(): void {
         this._sigsdaConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(
@@ -52,35 +37,18 @@ export class SigsdaNavHorizontalCollapsableComponent implements OnInit, OnDestro
             );
     }
 
-    /**
-     * On destroy
-     */
-    ngOnDestroy(): void
-    {
-        // Unsubscribe from all subscriptions
+    ngOnDestroy(): void {
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Open
-     */
     @HostListener('mouseenter')
-    open(): void
-    {
+    open(): void {
         this.isOpen = true;
     }
 
-    /**
-     * Close
-     */
     @HostListener('mouseleave')
-    close(): void
-    {
+    close(): void {
         this.isOpen = false;
     }
 }

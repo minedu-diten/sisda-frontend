@@ -12,19 +12,16 @@ import { FooterComponent } from 'app/layout/components/footer/footer.component';
     declarations: [
         FooterComponent
     ],
-    imports     : [
+    imports: [
         RouterModule,
-
         MatButtonModule,
         MatIconModule,
         MatToolbarModule,
-
         SigsdaSharedModule
     ],
-    exports     : [
+    exports: [
         FooterComponent
     ]
 })
-export class FooterModule
-{
+export class FooterModule {
 }

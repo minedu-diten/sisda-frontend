@@ -8,13 +8,12 @@ import { sigsdaAnimations } from '@sigsda/animations';
 import { SigsdaNavigationService } from '@sigsda/components/navigation/navigation.service';
 
 @Component({
-    selector   : 'sigsda-nav-vertical-collapsable',
+    selector: 'sigsda-nav-vertical-collapsable',
     templateUrl: './collapsable.component.html',
-    styleUrls  : ['./collapsable.component.scss'],
-    animations : sigsdaAnimations
+    styleUrls: ['./collapsable.component.scss'],
+    animations: sigsdaAnimations
 })
-export class SigsdaNavVerticalCollapsableComponent implements OnInit, OnDestroy
-{
+export class SigsdaNavVerticalCollapsableComponent implements OnInit, OnDestroy {
     @Input()
     item: SigsdaNavigationItem;
 
@@ -23,204 +22,110 @@ export class SigsdaNavVerticalCollapsableComponent implements OnInit, OnDestroy
 
     @HostBinding('class.open')
     public isOpen = false;
-
-    // Private
     private _unsubscribeAll: Subject<any>;
 
-    /**
-     * Constructor
-     *
-     * @param {ChangeDetectorRef} _changeDetectorRef
-     * @param {SigsdaNavigationService} _sigsdaNavigationService
-     * @param {Router} _router
-     */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
         private _sigsdaNavigationService: SigsdaNavigationService,
         private _router: Router
-    )
-    {
-        // Set the private defaults
+    ) {
         this._unsubscribeAll = new Subject();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On init
-     */
-    ngOnInit(): void
-    {
-        // Listen for router events
+    ngOnInit(): void {
         this._router.events
             .pipe(
                 filter(event => event instanceof NavigationEnd),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe((event: NavigationEnd) => {
-
-                // Check if the url can be found in
-                // one of the children of this item
-                if ( this.isUrlInChildren(this.item, event.urlAfterRedirects) )
-                {
+                if (this.isUrlInChildren(this.item, event.urlAfterRedirects)) {
                     this.expand();
                 }
-                else
-                {
+                else {
                     this.collapse();
                 }
             });
 
-        // Listen for collapsing of any navigation item
         this._sigsdaNavigationService.onItemCollapsed
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(
                 (clickedItem) => {
-                    if ( clickedItem && clickedItem.children )
-                    {
-                        // Check if the clicked item is one
-                        // of the children of this item
-                        if ( this.isChildrenOf(this.item, clickedItem) )
-                        {
+                    if (clickedItem && clickedItem.children) {
+                        if (this.isChildrenOf(this.item, clickedItem)) {
                             return;
                         }
 
-                        // Check if the url can be found in
-                        // one of the children of this item
-                        if ( this.isUrlInChildren(this.item, this._router.url) )
-                        {
+                        if (this.isUrlInChildren(this.item, this._router.url)) {
                             return;
                         }
 
-                        // If the clicked item is not this item, collapse...
-                        if ( this.item !== clickedItem )
-                        {
+                        if (this.item !== clickedItem) {
                             this.collapse();
                         }
                     }
                 }
             );
 
-        // Check if the url can be found in
-        // one of the children of this item
-        if ( this.isUrlInChildren(this.item, this._router.url) )
-        {
+        if (this.isUrlInChildren(this.item, this._router.url)) {
             this.expand();
         }
-        else
-        {
+        else {
             this.collapse();
         }
-
-        // Subscribe to navigation item
         merge(
             this._sigsdaNavigationService.onNavigationItemAdded,
             this._sigsdaNavigationService.onNavigationItemUpdated,
             this._sigsdaNavigationService.onNavigationItemRemoved
         ).pipe(takeUntil(this._unsubscribeAll))
-         .subscribe(() => {
-
-             // Mark for check
-             this._changeDetectorRef.markForCheck();
-         });
+            .subscribe(() => {
+                this._changeDetectorRef.markForCheck();
+            });
     }
 
-    /**
-     * On destroy
-     */
-    ngOnDestroy(): void
-    {
-        // Unsubscribe from all subscriptions
+    ngOnDestroy(): void {
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Toggle collapse
-     *
-     * @param ev
-     */
-    toggleOpen(ev): void
-    {
+    toggleOpen(ev): void {
         ev.preventDefault();
-
         this.isOpen = !this.isOpen;
-
-        // Navigation collapse toggled...
         this._sigsdaNavigationService.onItemCollapsed.next(this.item);
         this._sigsdaNavigationService.onItemCollapseToggled.next();
     }
 
-    /**
-     * Expand the collapsable navigation
-     */
-    expand(): void
-    {
-        if ( this.isOpen )
-        {
+    expand(): void {
+        if (this.isOpen) {
             return;
         }
-
         this.isOpen = true;
-
-        // Mark for check
         this._changeDetectorRef.markForCheck();
-
         this._sigsdaNavigationService.onItemCollapseToggled.next();
     }
 
-    /**
-     * Collapse the collapsable navigation
-     */
-    collapse(): void
-    {
-        if ( !this.isOpen )
-        {
+    collapse(): void {
+        if (!this.isOpen) {
             return;
         }
-
         this.isOpen = false;
-
-        // Mark for check
         this._changeDetectorRef.markForCheck();
-
         this._sigsdaNavigationService.onItemCollapseToggled.next();
     }
 
-    /**
-     * Check if the given parent has the
-     * given item in one of its children
-     *
-     * @param parent
-     * @param item
-     * @returns {boolean}
-     */
-    isChildrenOf(parent, item): boolean
-    {
+    isChildrenOf(parent, item): boolean {
         const children = parent.children;
-
-        if ( !children )
-        {
+        if (!children) {
             return false;
         }
 
-        if ( children.indexOf(item) > -1 )
-        {
+        if (children.indexOf(item) > -1) {
             return true;
         }
 
-        for ( const child of children )
-        {
-            if ( child.children )
-            {
-                if ( this.isChildrenOf(child, item) )
-                {
+        for (const child of children) {
+            if (child.children) {
+                if (this.isChildrenOf(child, item)) {
                     return true;
                 }
             }
@@ -229,39 +134,21 @@ export class SigsdaNavVerticalCollapsableComponent implements OnInit, OnDestroy
         return false;
     }
 
-    /**
-     * Check if the given url can be found
-     * in one of the given parent's children
-     *
-     * @param parent
-     * @param url
-     * @returns {boolean}
-     */
-    isUrlInChildren(parent, url): boolean
-    {
+    isUrlInChildren(parent, url): boolean {
         const children = parent.children;
-
-        if ( !children )
-        {
+        if (!children) {
             return false;
         }
-
-        for ( const child of children )
-        {
-            if ( child.children )
-            {
-                if ( this.isUrlInChildren(child, url) )
-                {
+        for (const child of children) {
+            if (child.children) {
+                if (this.isUrlInChildren(child, url)) {
                     return true;
                 }
             }
-
-            if ( child.url === url || url.includes(child.url) )
-            {
+            if (child.url === url || url.includes(child.url)) {
                 return true;
             }
         }
-
         return false;
     }
 

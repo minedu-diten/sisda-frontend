@@ -1,0 +1,204 @@
+@import "src/@sigsda/scss/sigsda";
+
+sigsda-sidebar {
+
+    &.navbar-sigsda-sidebar {
+        overflow: hidden;
+
+        &.folded:not(.unfolded) {
+
+            navbar {
+
+                sigsda-navbar-left {
+
+                    .navbar-top {
+                        padding: 12px 0;
+                        justify-content: center;
+                        border-bottom: 1px solid #4f5962; 
+                        .buttons {
+                            display: none;
+                        }
+
+                        .logo {                          
+                          
+                            .logo-icon {
+                                color: rgba(255,255,255,.8);
+                            }
+
+                            .logo-text {
+                                display: none;        
+                            }
+                        }
+                    }
+
+                    .navbar-scroll-container {      
+                            .user {   
+                                padding: 12px 0;
+                                height: 64px;
+                                min-height: 64px;
+                                max-height: 64px;       
+                                padding-left: .8rem;                              
+                                .avatar-container {
+                                    position: relative;
+                                    top: auto;
+                                    padding: 0;
+                                    transform: translateX(0);
+                                    left: auto;
+    
+                                    .avatar {
+                                        width: 40px;
+                                        height: 40px;
+                                    }
+                                }
+                                .username,
+                                .email {
+                                    display: none;
+                                }
+                            }                                        
+
+                        .navbar-content {
+                            padding-top: 0;
+
+                            // Material 2 specific style
+                            .material2 {
+
+                                .nav-item {
+
+                                    .nav-link {
+                                        border-radius: 20px;
+                                        margin: 0 12px;
+                                        padding: 0 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+navbar {
+
+    &.vertical-style-1 {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        width: 100%;
+        height: 100%;
+
+        &.right-navbar {
+
+            .toggle-sidebar-opened {
+
+                mat-icon {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    sigsda-navbar-left {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+
+        .navbar-top {
+            display: flex;
+            flex-direction: row;
+            flex: 1 0 auto;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 64px;
+            max-height: 64px;
+            height: 64px;
+            padding: 12px 12px 12px 20px;
+            border-bottom: 1px solid #4f5962; 
+
+            @include media-breakpoint('xs') {
+                min-height: 56px;
+                max-height: 56px;
+                height: 56px;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                
+                .logo-icon {               
+                    color: rgba(255,255,255,.8);
+                }
+
+                .logo-text {
+                    font-family: "Gotham-Bold", Helvetica, Arial, sans-serif;
+                    color: rgba(255,255,255,.8);
+                    margin-left: 12px;
+                    font-size: 26px;
+                    font-weight: 700;
+                    letter-spacing: 0.4px;
+                    line-height: normal;
+                }
+            }
+
+            .buttons {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .navbar-scroll-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+
+            background: linear-gradient(rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 30%),
+            linear-gradient(rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0) 40%);
+
+            background-repeat: no-repeat;
+            background-size: 100% 40px, 100% 10px;
+            background-attachment: local, scroll;    
+                .user {  
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 100%;
+                    height: 75px;
+                    min-height: 75px;
+                    max-height: 75px;
+                    padding-left: .8rem;   
+                    .avatar-container {
+                        position: relative;
+                      //  top: 92px;
+                        border-radius: 50%;
+                        //padding: 8px;
+                        transform: translateX(-50%);
+                        left: 10%;    
+                        .avatar {
+                            font-size: 2em;
+                            color: #fff
+                        }
+                    }
+                    .success-icon {
+                        color: #28a745!important;
+                        font-size: 15px;
+                    }
+                    .username{
+                        font-size: 12px;
+                        color: #ffffff;
+                    }
+                }
+                  
+
+            .navbar-content {
+                flex: 1 1 auto;               
+                border-top: 1px solid #4f5962; 
+            }
+           
+        }
+    }
+}

@@ -33,7 +33,6 @@
         <ng-container *ngTemplateOutlet="itemContent"></ng-container>
     </a>
 
-    <!-- item.externalUrl && item.function -->
     <a class="nav-link" [ngClass]="item.classes" *ngIf="item.url && item.externalUrl && item.function"
        (click)="item.function()"
        [href]="item.url" [target]="item.openInNewTab ? '_blank' : '_self'">

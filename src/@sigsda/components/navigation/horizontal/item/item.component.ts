@@ -12,10 +12,7 @@ export class SigsdaNavHorizontalItemComponent
 
     @Input()
     item: any;
-
-    /**
-     * Constructor
-     */
+       
     constructor()
     {
 

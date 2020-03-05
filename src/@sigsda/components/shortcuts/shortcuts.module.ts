@@ -10,7 +10,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { CookieService } from 'ngx-cookie-service';
 
 import { SigsdaShortcutsComponent } from './shortcuts.component';
 
@@ -21,9 +20,7 @@ import { SigsdaShortcutsComponent } from './shortcuts.component';
     imports     : [
         CommonModule,
         RouterModule,
-
         FlexLayoutModule,
-
         MatButtonModule,
         MatDividerModule,
         MatFormFieldModule,
@@ -35,9 +32,6 @@ import { SigsdaShortcutsComponent } from './shortcuts.component';
     ],
     exports     : [
         SigsdaShortcutsComponent
-    ],
-    providers   : [
-        CookieService
     ]
 })
 export class SigsdaShortcutsModule

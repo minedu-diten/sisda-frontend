@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 
-import { TranslateModule } from '@ngx-translate/core';
 
 import { SigsdaNavigationComponent } from './navigation.component';
 import { SigsdaNavVerticalItemComponent } from './vertical/item/item.component';
@@ -17,11 +16,8 @@ import { SigsdaNavHorizontalCollapsableComponent } from './horizontal/collapsabl
     imports     : [
         CommonModule,
         RouterModule,
-
         MatIconModule,
         MatRippleModule,
-
-        TranslateModule.forChild()
     ],
     exports     : [
         SigsdaNavigationComponent

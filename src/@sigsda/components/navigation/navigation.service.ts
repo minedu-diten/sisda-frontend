@@ -12,7 +12,6 @@ export class SigsdaNavigationService
     onItemCollapsed: Subject<any>;
     onItemCollapseToggled: Subject<any>;
 
-    // Private
     private _onNavigationChanged: BehaviorSubject<any>;
     private _onNavigationRegistered: BehaviorSubject<any>;
     private _onNavigationUnregistered: BehaviorSubject<any>;
@@ -22,17 +21,11 @@ export class SigsdaNavigationService
 
     private _currentNavigationKey: string;
     private _registry: { [key: string]: any } = {};
-
-    /**
-     * Constructor
-     */
+    
     constructor()
     {
-        // Set the defaults
         this.onItemCollapsed = new Subject();
         this.onItemCollapseToggled = new Subject();
-
-        // Set the private defaults
         this._currentNavigationKey = null;
         this._onNavigationChanged = new BehaviorSubject(null);
         this._onNavigationRegistered = new BehaviorSubject(null);
@@ -42,55 +35,24 @@ export class SigsdaNavigationService
         this._onNavigationItemRemoved = new BehaviorSubject(null);
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Accessors
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Get onNavigationChanged
-     *
-     * @returns {Observable<any>}
-     */
     get onNavigationChanged(): Observable<any>
     {
         return this._onNavigationChanged.asObservable();
-    }
-
-    /**
-     * Get onNavigationRegistered
-     *
-     * @returns {Observable<any>}
-     */
+    }  
     get onNavigationRegistered(): Observable<any>
     {
         return this._onNavigationRegistered.asObservable();
     }
-
-    /**
-     * Get onNavigationUnregistered
-     *
-     * @returns {Observable<any>}
-     */
+   
     get onNavigationUnregistered(): Observable<any>
     {
         return this._onNavigationUnregistered.asObservable();
-    }
-
-    /**
-     * Get onNavigationItemAdded
-     *
-     * @returns {Observable<any>}
-     */
+    }   
     get onNavigationItemAdded(): Observable<any>
     {
         return this._onNavigationItemAdded.asObservable();
     }
-
-    /**
-     * Get onNavigationItemUpdated
-     *
-     * @returns {Observable<any>}
-     */
+    
     get onNavigationItemUpdated(): Observable<any>
     {
         return this._onNavigationItemUpdated.asObservable();

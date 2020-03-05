@@ -12,7 +12,7 @@
             },
             "root": "",
             "sourceRoot": "src",
-            "prefix": "app",
+            "prefix": "sigsda",
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
@@ -140,5 +140,5 @@
             }
         }
     },
-    "defaultProject": "sigsda"
+    "defaultProject": "sigsda-escalafon"
 }

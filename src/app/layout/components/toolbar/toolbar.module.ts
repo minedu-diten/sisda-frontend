@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { SigsdaSearchBarModule, SigsdaShortcutsModule } from '@sigsda/components';
+import { SigsdaShortcutsModule } from '@sigsda/components';
 import { SigsdaSharedModule } from '@sigsda/shared.module';
 
 import { ToolbarComponent } from 'app/layout/components/toolbar/toolbar.component';
@@ -22,7 +22,6 @@ import { ToolbarComponent } from 'app/layout/components/toolbar/toolbar.componen
         MatToolbarModule,
 
         SigsdaSharedModule,
-        SigsdaSearchBarModule,
         SigsdaShortcutsModule
     ],
     exports     : [

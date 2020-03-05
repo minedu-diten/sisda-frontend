@@ -6,7 +6,7 @@ import { debounceTime, filter, takeUntil } from 'rxjs/operators';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as _ from 'lodash';
 import { SigsdaConfigService } from '@sigsda/services/config.service';
-import { SigsdaPerfectScrollbarGeometry, SigsdaPerfectScrollbarPosition } from './fuse-perfect-scrollbar.interfaces';
+import { SigsdaPerfectScrollbarGeometry, SigsdaPerfectScrollbarPosition } from './sigsda-perfect-scrollbar.interfaces';
 
 @Directive({
     selector: '[sigsdaPerfectScrollbar]'

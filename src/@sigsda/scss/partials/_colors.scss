@@ -16,7 +16,7 @@
         @if ($is-dark) {
             background: map-get($background, background);
         } @else {
-            background: #F5F5F5;
+            background: #e5e5e5;
         }
     }
 
@@ -65,7 +65,7 @@ $matPalettes: (
     'deep-orange': $mat-deep-orange,
     'brown': $mat-brown,
     'grey': $mat-grey,
-    'blue-grey': $mat-blue-grey
+    'blue-grey': $mat-blue-grey,
 );
 
 // Material color hues list

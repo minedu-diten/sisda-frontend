@@ -1,7 +1,6 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Platform } from '@angular/cdk/platform';
-import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -9,11 +8,8 @@ import { SigsdaConfigService } from '@sigsda/services/config.service';
 import { SigsdaNavigationService } from '@sigsda/components/navigation/navigation.service';
 import { SigsdaSidebarService } from '@sigsda/components/sidebar/sidebar.service';
 import { SigsdaSplashScreenService } from '@sigsda/services/splash-screen.service';
-import { SigsdaTranslationLoaderService } from '@sigsda/services/translation-loader.service';
 
-import { navigation } from 'app/navigation/navigation';
-import { locale as navigationEnglish } from 'app/navigation/i18n/en';
-import { locale as navigationTurkish } from 'app/navigation/i18n/tr';
+import { navigation } from 'app/config/navigation';
 
 @Component({
     selector   : 'app',
@@ -27,19 +23,7 @@ export class AppComponent implements OnInit, OnDestroy
 
     // Private
     private _unsubscribeAll: Subject<any>;
-
-    /**
-     * Constructor
-     *
-     * @param {DOCUMENT} document
-     * @param {SigsdaConfigService} _sigsdaConfigService
-     * @param {SigsdaNavigationService} _sigsdaNavigationService
-     * @param {SigsdaSidebarService} _sigsdaSidebarService
-     * @param {SigsdaSplashScreenService} _sigsdaSplashScreenService
-     * @param {SigsdaTranslationLoaderService} _sigsdaTranslationLoaderService
-     * @param {Platform} _platform
-     * @param {TranslateService} _translateService
-     */
+  
     constructor(
         @Inject(DOCUMENT) private document: any,
         private _sigsdaConfigService: SigsdaConfigService,

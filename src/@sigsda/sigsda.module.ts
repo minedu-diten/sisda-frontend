@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 
-import { FUSE_CONFIG } from '@sigsda/services/config.service';
+import { SIGSDA_CONFIG } from '@sigsda/services/config.service';
 
 @NgModule()
 export class SigsdaModule
@@ -19,7 +19,7 @@ export class SigsdaModule
             ngModule : SigsdaModule,
             providers: [
                 {
-                    provide : FUSE_CONFIG,
+                    provide : SIGSDA_CONFIG,
                     useValue: config
                 }
             ]
