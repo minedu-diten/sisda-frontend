@@ -4,41 +4,17 @@ import { MatSidenav } from '@angular/material/sidenav';
 @Injectable({
     providedIn: 'root'
 })
-export class SigsdaMatSidenavHelperService
-{
+export class SigsdaMatSidenavHelperService {
     sidenavInstances: MatSidenav[];
-
-    /**
-     * Constructor
-     */
-    constructor()
-    {
+    constructor() {
         this.sidenavInstances = [];
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Accessors
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Set sidenav
-     *
-     * @param id
-     * @param instance
-     */
-    setSidenav(id, instance): void
-    {
+    setSidenav(id, instance): void {
         this.sidenavInstances[id] = instance;
     }
 
-    /**
-     * Get sidenav
-     *
-     * @param id
-     * @returns {any}
-     */
-    getSidenav(id): any
-    {
+    getSidenav(id): any {
         return this.sidenavInstances[id];
     }
 }

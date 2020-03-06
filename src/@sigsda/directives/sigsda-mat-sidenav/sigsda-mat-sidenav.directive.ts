@@ -10,62 +10,34 @@ import { SigsdaMatSidenavHelperService } from '@sigsda/directives/sigsda-mat-sid
 @Directive({
     selector: '[sigsdaMatSidenavHelper]'
 })
-export class SigsdaMatSidenavHelperDirective implements OnInit, OnDestroy
-{
+export class SigsdaMatSidenavHelperDirective implements OnInit, OnDestroy {
     @HostBinding('class.mat-is-locked-open')
     isLockedOpen: boolean;
 
     @Input()
     sigsdaMatSidenavHelper: string;
-
     @Input()
     matIsLockedOpen: string;
-
-    // Private
     private _unsubscribeAll: Subject<any>;
 
-    /**
-     * Constructor
-     *
-     * @param {SigsdaMatchMediaService} _sigsdaMatchMediaService
-     * @param {SigsdaMatSidenavHelperService} _sigsdaMatSidenavHelperService
-     * @param {MatSidenav} _matSidenav
-     * @param {MediaObserver} _mediaObserver
-     */
     constructor(
         private _sigsdaMatchMediaService: SigsdaMatchMediaService,
         private _sigsdaMatSidenavHelperService: SigsdaMatSidenavHelperService,
         private _matSidenav: MatSidenav,
         private _mediaObserver: MediaObserver
-    )
-    {
-        // Set the defaults
+    ) {
         this.isLockedOpen = true;
-
-        // Set the private defaults
         this._unsubscribeAll = new Subject();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On init
-     */
-    ngOnInit(): void
-    {
-        // Register the sidenav to the service
+    ngOnInit(): void {
         this._sigsdaMatSidenavHelperService.setSidenav(this.sigsdaMatSidenavHelper, this._matSidenav);
-
-        if ( this.matIsLockedOpen && this._mediaObserver.isActive(this.matIsLockedOpen) )
-        {
+        if (this.matIsLockedOpen && this._mediaObserver.isActive(this.matIsLockedOpen)) {
             this.isLockedOpen = true;
             this._matSidenav.mode = 'side';
             this._matSidenav.toggle(true);
         }
-        else
-        {
+        else {
             this.isLockedOpen = false;
             this._matSidenav.mode = 'over';
             this._matSidenav.toggle(false);
@@ -74,14 +46,12 @@ export class SigsdaMatSidenavHelperDirective implements OnInit, OnDestroy
         this._sigsdaMatchMediaService.onMediaChange
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(() => {
-                if ( this.matIsLockedOpen && this._mediaObserver.isActive(this.matIsLockedOpen) )
-                {
+                if (this.matIsLockedOpen && this._mediaObserver.isActive(this.matIsLockedOpen)) {
                     this.isLockedOpen = true;
                     this._matSidenav.mode = 'side';
                     this._matSidenav.toggle(true);
                 }
-                else
-                {
+                else {
                     this.isLockedOpen = false;
                     this._matSidenav.mode = 'over';
                     this._matSidenav.toggle(false);
@@ -89,12 +59,7 @@ export class SigsdaMatSidenavHelperDirective implements OnInit, OnDestroy
             });
     }
 
-    /**
-     * On destroy
-     */
-    ngOnDestroy(): void
-    {
-        // Unsubscribe from all subscriptions
+    ngOnDestroy(): void {
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
@@ -103,31 +68,16 @@ export class SigsdaMatSidenavHelperDirective implements OnInit, OnDestroy
 @Directive({
     selector: '[sigsdaMatSidenavToggler]'
 })
-export class SigsdaMatSidenavTogglerDirective
-{
+export class SigsdaMatSidenavTogglerDirective {
     @Input()
     sigsdaMatSidenavToggler: string;
 
-    /**
-     * Constructor
-     *
-     * @param {SigsdaMatSidenavHelperService} _sigsdaMatSidenavHelperService
-     */
-    constructor(
-        private _sigsdaMatSidenavHelperService: SigsdaMatSidenavHelperService)
-    {
+
+    constructor(private _sigsdaMatSidenavHelperService: SigsdaMatSidenavHelperService) {
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On click
-     */
     @HostListener('click')
-    onClick(): void
-    {
+    onClick(): void {
         this._sigsdaMatSidenavHelperService.getSidenav(this.sigsdaMatSidenavToggler).toggle();
     }
 }

@@ -13,8 +13,8 @@ import { SigsdaMatSidenavHelperDirective, SigsdaMatSidenavTogglerDirective } fro
         SigsdaMatSidenavTogglerDirective,
         SigsdaPerfectScrollbarDirective
     ],
-    imports     : [],
-    exports     : [
+    imports: [],
+    exports: [
         SigsdaIfOnDomDirective,
         SigsdaInnerScrollDirective,
         SigsdaMatSidenavHelperDirective,
@@ -22,6 +22,5 @@ import { SigsdaMatSidenavHelperDirective, SigsdaMatSidenavTogglerDirective } fro
         SigsdaPerfectScrollbarDirective
     ]
 })
-export class SigsdaDirectivesModule
-{
+export class SigsdaDirectivesModule {
 }

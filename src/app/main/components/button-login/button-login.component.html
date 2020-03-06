@@ -1,0 +1,8 @@
+<button mat-raised-button color="accent" *ngIf="!sisdaForm.valid" class="submit-button" disabled>
+    <span>Ingresar</span>
+</button>
+<button mat-raised-button color="accent" (click)="onClickChild($event)" [disabled]="working" *ngIf="sisdaForm.valid"
+    class="submit-button">
+    <span [hidden]="!working">Verificando cuenta...</span>
+    <span [hidden]="working">Ingresar</span>
+</button>

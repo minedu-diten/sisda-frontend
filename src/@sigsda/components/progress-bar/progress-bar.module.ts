@@ -12,7 +12,7 @@ import { SigsdaProgressBarComponent } from './progress-bar.component';
     declarations: [
         SigsdaProgressBarComponent
     ],
-    imports     : [
+    imports: [
         CommonModule,
         RouterModule,
 
@@ -20,10 +20,9 @@ import { SigsdaProgressBarComponent } from './progress-bar.component';
         MatIconModule,
         MatProgressBarModule
     ],
-    exports     : [
+    exports: [
         SigsdaProgressBarComponent
     ]
 })
-export class SigsdaProgressBarModule
-{
+export class SigsdaProgressBarModule {
 }

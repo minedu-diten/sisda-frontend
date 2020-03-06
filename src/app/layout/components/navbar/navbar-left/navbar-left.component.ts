@@ -9,118 +9,96 @@ import { SigsdaPerfectScrollbarDirective } from '@sigsda/directives/sigsda-perfe
 import { SigsdaSidebarService } from '@sigsda/components/sidebar/sidebar.service';
 
 @Component({
-  selector: 'sigsda-navbar-left',
-  templateUrl: './navbar-left.component.html',
-  styleUrls: ['./navbar-left.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'sigsda-navbar-left',
+    templateUrl: './navbar-left.component.html',
+    styleUrls: ['./navbar-left.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class NavbarLeftComponent implements OnInit, OnDestroy {
-  sigsdaConfig: any;
-  navigation: any;
+    sigsdaConfig: any;
+    navigation: any;
 
-  // Private
-  private _sigsdaPerfectScrollbar: SigsdaPerfectScrollbarDirective;
-  private _unsubscribeAll: Subject<any>;
+    private _sigsdaPerfectScrollbar: SigsdaPerfectScrollbarDirective;
+    private _unsubscribeAll: Subject<any>;
 
-  constructor(
-      private _sigsdaConfigService: SigsdaConfigService,
-      private _sigsdaNavigationService: SigsdaNavigationService,
-      private _sigsdaSidebarService: SigsdaSidebarService,
-      private _router: Router
-  ) {
-      // Set the private defaults
-      this._unsubscribeAll = new Subject();
-  }
+    constructor(
+        private _sigsdaConfigService: SigsdaConfigService,
+        private _sigsdaNavigationService: SigsdaNavigationService,
+        private _sigsdaSidebarService: SigsdaSidebarService,
+        private _router: Router
+    ) {
+        this._unsubscribeAll = new Subject();
+    }
 
 
-  // Directive
-  @ViewChild(SigsdaPerfectScrollbarDirective, { static: true })
-  set directive(theDirective: SigsdaPerfectScrollbarDirective) {
-      if (!theDirective) {
-          return;
-      }
+    @ViewChild(SigsdaPerfectScrollbarDirective, { static: true })
+    set directive(theDirective: SigsdaPerfectScrollbarDirective) {
+        if (!theDirective) {
+            return;
+        }
 
-      this._sigsdaPerfectScrollbar = theDirective;
+        this._sigsdaPerfectScrollbar = theDirective;
+        this._sigsdaNavigationService.onItemCollapseToggled
+            .pipe(
+                delay(500),
+                takeUntil(this._unsubscribeAll)
+            )
+            .subscribe(() => {
+                this._sigsdaPerfectScrollbar.update();
+            });
 
-      // Update the scrollbar on collapsable item toggle
-      this._sigsdaNavigationService.onItemCollapseToggled
-          .pipe(
-              delay(500),
-              takeUntil(this._unsubscribeAll)
-          )
-          .subscribe(() => {
-              this._sigsdaPerfectScrollbar.update();
-          });
+        this._router.events
+            .pipe(
+                filter((event) => event instanceof NavigationEnd),
+                take(1)
+            )
+            .subscribe(() => {
+                setTimeout(() => {
+                    this._sigsdaPerfectScrollbar.scrollToElement('navbar .nav-link.active', -120);
+                });
+            }
+            );
+    }
 
-      // Scroll to the active item position
-      this._router.events
-          .pipe(
-              filter((event) => event instanceof NavigationEnd),
-              take(1)
-          )
-          .subscribe(() => {
-              setTimeout(() => {
-                  this._sigsdaPerfectScrollbar.scrollToElement('navbar .nav-link.active', -120);
-              });
-          }
-          );
-  }
+    ngOnInit(): void {
+        this._router.events
+            .pipe(
+                filter((event) => event instanceof NavigationEnd),
+                takeUntil(this._unsubscribeAll)
+            )
+            .subscribe(() => {
+                if (this._sigsdaSidebarService.getSidebar('navbar')) {
+                    this._sigsdaSidebarService.getSidebar('navbar').close();
+                }
+            }
+            );
 
+        this._sigsdaConfigService.config
+            .pipe(takeUntil(this._unsubscribeAll))
+            .subscribe((config) => {
+                this.sigsdaConfig = config;
+            });
 
-  /**
-   * On init
-   */
-  ngOnInit(): void {
-      this._router.events
-          .pipe(
-              filter((event) => event instanceof NavigationEnd),
-              takeUntil(this._unsubscribeAll)
-          )
-          .subscribe(() => {
-              if (this._sigsdaSidebarService.getSidebar('navbar')) {
-                  this._sigsdaSidebarService.getSidebar('navbar').close();
-              }
-          }
-          );
+        this._sigsdaNavigationService.onNavigationChanged
+            .pipe(
+                filter(value => value !== null),
+                takeUntil(this._unsubscribeAll)
+            )
+            .subscribe(() => {
+                this.navigation = this._sigsdaNavigationService.getCurrentNavigation();
+            });
+    }
 
-      // Subscribe to the config changes
-      this._sigsdaConfigService.config
-          .pipe(takeUntil(this._unsubscribeAll))
-          .subscribe((config) => {
-              this.sigsdaConfig = config;
-          });
+    ngOnDestroy(): void {
+        this._unsubscribeAll.next();
+        this._unsubscribeAll.complete();
+    }
 
-      // Get current navigation
-      this._sigsdaNavigationService.onNavigationChanged
-          .pipe(
-              filter(value => value !== null),
-              takeUntil(this._unsubscribeAll)
-          )
-          .subscribe(() => {
-              this.navigation = this._sigsdaNavigationService.getCurrentNavigation();
-          });
-  }
+    toggleSidebarOpened(): void {
+        this._sigsdaSidebarService.getSidebar('navbar').toggleOpen();
+    }
 
-  /**
-   * On destroy
-   */
-  ngOnDestroy(): void {
-      // Unsubscribe from all subscriptions
-      this._unsubscribeAll.next();
-      this._unsubscribeAll.complete();
-  }
-
-  /**
-   * Toggle sidebar opened status
-   */
-  toggleSidebarOpened(): void {
-      this._sigsdaSidebarService.getSidebar('navbar').toggleOpen();
-  }
-
-  /**
-   * Toggle sidebar folded status
-   */
-  toggleSidebarFolded(): void {
-      this._sigsdaSidebarService.getSidebar('navbar').toggleFold();
-  }
+    toggleSidebarFolded(): void {
+        this._sigsdaSidebarService.getSidebar('navbar').toggleFold();
+    }
 }

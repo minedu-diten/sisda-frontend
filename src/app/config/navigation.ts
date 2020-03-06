@@ -13,7 +13,7 @@ export const navigation: SigsdaNavigation[] = [
         title: 'Gestión de Escalafón',
         type: 'item',
         icon: 'settings',
-        url: '/educarh/sigsda/escalafon'
+        url: '/educarh/sisda/escalafon'
     },
     {
         id: 'bandeja',
@@ -25,19 +25,19 @@ export const navigation: SigsdaNavigation[] = [
                 id: 'submenu1',
                 title: 'Submenu1',
                 type: 'item',
-                url: '/educarh/sigsda/bandeja/submenu1',
+                url: '/educarh/sisda/bandeja/submenu1',
             },
             {
                 id: 'submenu2',
                 title: 'Submenu2',
                 type: 'item',
-                url: '/educarh/sigsda/bandeja/submenu2',
+                url: '/educarh/sisda/bandeja/submenu2',
             },
             {
                 id: 'submenu3',
                 title: 'Submenu3',
                 type: 'item',
-                url: '/educarh/sigsda/bandeja/submenu3',
+                url: '/educarh/sisda/bandeja/submenu3',
             }
         ]
     },
@@ -46,13 +46,13 @@ export const navigation: SigsdaNavigation[] = [
         title: 'Búsqueda en otra IGED',
         type: 'item',
         icon: 'search',
-        url: '/educarh/sigsda/iged'
+        url: '/educarh/sisda/iged'
     },
     {
         id: 'reporte',
         title: 'Reportería',
         type: 'item',
         icon: 'pie_chart',
-        url: '/educarh/sigsda/reporte'
+        url: '/educarh/sisda/reporte'
     }
 ];

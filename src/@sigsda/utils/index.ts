@@ -1,33 +1,17 @@
 export class SigsdaUtils
 {
-    /**
-     * Filter array by string
-     *
-     * @param mainArr
-     * @param searchText
-     * @returns {any}
-     */
     public static filterArrayByString(mainArr, searchText): any
     {
         if ( searchText === '' )
         {
             return mainArr;
         }
-
         searchText = searchText.toLowerCase();
-
         return mainArr.filter(itemObj => {
             return this.searchInObj(itemObj, searchText);
         });
     }
-
-    /**
-     * Search in object
-     *
-     * @param itemObj
-     * @param searchText
-     * @returns {boolean}
-     */
+    
     public static searchInObj(itemObj, searchText): boolean
     {
         for ( const prop in itemObj )
@@ -36,9 +20,7 @@ export class SigsdaUtils
             {
                 continue;
             }
-
             const value = itemObj[prop];
-
             if ( typeof value === 'string' )
             {
                 if ( this.searchInString(value, searchText) )
@@ -64,14 +46,7 @@ export class SigsdaUtils
             }
         }
     }
-
-    /**
-     * Search in array
-     *
-     * @param arr
-     * @param searchText
-     * @returns {boolean}
-     */
+   
     public static searchInArray(arr, searchText): boolean
     {
         for ( const value of arr )
@@ -94,23 +69,11 @@ export class SigsdaUtils
         }
     }
 
-    /**
-     * Search in string
-     *
-     * @param value
-     * @param searchText
-     * @returns {any}
-     */
     public static searchInString(value, searchText): any
     {
         return value.toLowerCase().includes(searchText);
     }
 
-    /**
-     * Generate a unique GUID
-     *
-     * @returns {string}
-     */
     public static generateGUID(): string
     {
         function S4(): string
@@ -123,12 +86,6 @@ export class SigsdaUtils
         return S4() + S4();
     }
 
-    /**
-     * Toggle in array
-     *
-     * @param item
-     * @param array
-     */
     public static toggleInArray(item, array): void
     {
         if ( array.indexOf(item) === -1 )
@@ -141,12 +98,6 @@ export class SigsdaUtils
         }
     }
 
-    /**
-     * Handleize
-     *
-     * @param text
-     * @returns {string}
-     */
     public static handleize(text): string
     {
         return text.toString().toLowerCase()

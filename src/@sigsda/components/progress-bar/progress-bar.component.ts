@@ -5,69 +5,40 @@ import { takeUntil } from 'rxjs/operators';
 import { SigsdaProgressBarService } from '@sigsda/components/progress-bar/progress-bar.service';
 
 @Component({
-    selector     : 'sigsda-progress-bar',
-    templateUrl  : './progress-bar.component.html',
-    styleUrls    : ['./progress-bar.component.scss'],
+    selector: 'sigsda-progress-bar',
+    templateUrl: './progress-bar.component.html',
+    styleUrls: ['./progress-bar.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class SigsdaProgressBarComponent implements OnInit, OnDestroy
-{
+export class SigsdaProgressBarComponent implements OnInit, OnDestroy {
     bufferValue: number;
     mode: 'determinate' | 'indeterminate' | 'buffer' | 'query';
     value: number;
     visible: boolean;
-
-    // Private
     private _unsubscribeAll: Subject<any>;
 
-    /**
-     * Constructor
-     *
-     * @param {SigsdaProgressBarService} _sigsdaProgressBarService
-     */
-    constructor(
-        private _sigsdaProgressBarService: SigsdaProgressBarService
-    )
-    {
-        // Set the defaults
-
-        // Set the private defaults
+    constructor(private _sigsdaProgressBarService: SigsdaProgressBarService) {
         this._unsubscribeAll = new Subject();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On init
-     */
-    ngOnInit(): void
-    {
-        // Subscribe to the progress bar service properties
-
-        // Buffer value
+    ngOnInit(): void {
         this._sigsdaProgressBarService.bufferValue
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((bufferValue) => {
                 this.bufferValue = bufferValue;
             });
-
-        // Mode
         this._sigsdaProgressBarService.mode
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((mode) => {
                 this.mode = mode;
             });
 
-        // Value
         this._sigsdaProgressBarService.value
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((value) => {
                 this.value = value;
             });
 
-        // Visible
         this._sigsdaProgressBarService.visible
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((visible) => {
@@ -76,18 +47,8 @@ export class SigsdaProgressBarComponent implements OnInit, OnDestroy
 
     }
 
-    /**
-     * On destroy
-     */
-    ngOnDestroy(): void
-    {
-        // Unsubscribe from all subscriptions
+    ngOnDestroy(): void {
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
-
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
 }

@@ -1,12 +1,10 @@
-# Sigsda - Angular
+# SIGSDA - MINEDU
 
-Material Design Admin Template with Angular 8 and Angular Material
+Angular 8 and Angular Material
 
 ## The Community
 
 Share your ideas, discuss Sigsda and help each other.
-
-[Click here](http://sigsdatheme.com/community) to see our Community page.
 
 ## Development server
 

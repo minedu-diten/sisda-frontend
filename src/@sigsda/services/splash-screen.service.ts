@@ -8,46 +8,21 @@ import { filter, take } from 'rxjs/operators';
 @Injectable({
     providedIn: 'root'
 })
-export class SigsdaSplashScreenService
-{
+export class SigsdaSplashScreenService {
     splashScreenEl: any;
     player: AnimationPlayer;
 
-    /**
-     * Constructor
-     *
-     * @param {AnimationBuilder} _animationBuilder
-     * @param _document
-     * @param {Router} _router
-     */
     constructor(
         private _animationBuilder: AnimationBuilder,
         @Inject(DOCUMENT) private _document: any,
         private _router: Router
-    )
-    {
-        // Initialize
+    ) {
         this._init();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Private methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Initialize
-     *
-     * @private
-     */
-    private _init(): void
-    {
-        // Get the splash screen element
+    private _init(): void {
         this.splashScreenEl = this._document.body.querySelector('#sigsda-splash-screen');
-
-        // If the splash screen element exists...
-        if ( this.splashScreenEl )
-        {
-            // Hide it on the first NavigationEnd event
+        if (this.splashScreenEl) {
             this._router.events
                 .pipe(
                     filter((event => event instanceof NavigationEnd)),
@@ -61,23 +36,15 @@ export class SigsdaSplashScreenService
         }
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Show the splash screen
-     */
-    show(): void
-    {
+    show(): void {
         this.player =
             this._animationBuilder
                 .build([
                     style({
                         opacity: '0',
-                        zIndex : '99999'
+                        zIndex: '99999'
                     }),
-                    animate('400ms ease', style({opacity: '1'}))
+                    animate('400ms ease', style({ opacity: '1' }))
                 ]).create(this.splashScreenEl);
 
         setTimeout(() => {
@@ -85,18 +52,14 @@ export class SigsdaSplashScreenService
         }, 0);
     }
 
-    /**
-     * Hide the splash screen
-     */
-    hide(): void
-    {
+    hide(): void {
         this.player =
             this._animationBuilder
                 .build([
-                    style({opacity: '1'}),
+                    style({ opacity: '1' }),
                     animate('400ms ease', style({
                         opacity: '0',
-                        zIndex : '-10'
+                        zIndex: '-10'
                     }))
                 ]).create(this.splashScreenEl);
 

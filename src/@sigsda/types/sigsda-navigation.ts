@@ -1,5 +1,4 @@
-export interface SigsdaNavigationItem
-{
+export interface SigsdaNavigationItem {
     id: string;
     title: string;
     type: 'item' | 'group' | 'collapsable';
@@ -20,7 +19,6 @@ export interface SigsdaNavigationItem
     children?: SigsdaNavigationItem[];
 }
 
-export interface SigsdaNavigation extends SigsdaNavigationItem
-{
+export interface SigsdaNavigation extends SigsdaNavigationItem {
     children?: SigsdaNavigationItem[];
 }

@@ -6,10 +6,9 @@ import { SigsdaSidebarComponent } from './sidebar.component';
     declarations: [
         SigsdaSidebarComponent
     ],
-    exports     : [
+    exports: [
         SigsdaSidebarComponent
     ]
 })
-export class SigsdaSidebarModule
-{
+export class SigsdaSidebarModule {
 }

@@ -22,7 +22,6 @@ export class LayoutComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-
         this._sigsdaConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config) => {

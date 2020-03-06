@@ -7,109 +7,50 @@ import { SigsdaMatchMediaService } from '@sigsda/services/match-media.service';
 @Directive({
     selector: '.inner-scroll'
 })
-export class SigsdaInnerScrollDirective implements OnInit, OnDestroy
-{
-    // Private
+export class SigsdaInnerScrollDirective implements OnInit, OnDestroy {
     private _parent: any;
     private _grandParent: any;
     private _unsubscribeAll: Subject<any>;
 
-    /**
-     * Constructor
-     *
-     * @param {ElementRef} _elementRef
-     * @param {SigsdaMatchMediaService} _sigsdaMediaMatchService
-     * @param {Renderer2} _renderer
-     */
     constructor(
         private _elementRef: ElementRef,
         private _sigsdaMediaMatchService: SigsdaMatchMediaService,
         private _renderer: Renderer2
-    )
-    {
-        // Set the private defaults
+    ) {
         this._unsubscribeAll = new Subject();
     }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * On init
-     */
-    ngOnInit(): void
-    {
-        // Get the parent
+    ngOnInit(): void {
         this._parent = this._renderer.parentNode(this._elementRef.nativeElement);
-
-        // Return, if there is no parent
-        if ( !this._parent )
-        {
+        if (!this._parent) {
             return;
         }
-
-        // Get the grand parent
         this._grandParent = this._renderer.parentNode(this._parent);
 
-        // Register to the media query changes
         this._sigsdaMediaMatchService.onMediaChange
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((alias) => {
-
-                if ( alias === 'xs' )
-                {
+                if (alias === 'xs') {
                     this._removeClass();
                 }
-                else
-                {
+                else {
                     this._addClass();
                 }
             });
     }
 
-    /**
-     * On destroy
-     */
-    ngOnDestroy(): void
-    {
-        // Return, if there is no parent
-        if ( !this._parent )
-        {
-            return;
-        }
-
-        // Remove the class
+    ngOnDestroy(): void {
+        if (!this._parent) { return; }
         this._removeClass();
-
-        // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
     }
-
-    // -----------------------------------------------------------------------------------------------------
-    // @ Private methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Add the class name
-     *
-     * @private
-     */
-    private _addClass(): void
-    {
-        // Add the inner-scroll class
+   
+    private _addClass(): void {
         this._renderer.addClass(this._grandParent, 'inner-scroll');
     }
 
-    /**
-     * Remove the class name
-     * @private
-     */
-    private _removeClass(): void
-    {
-
-        // Remove the inner-scroll class
+    private _removeClass(): void {
         this._renderer.removeClass(this._grandParent, 'inner-scroll');
     }
 }

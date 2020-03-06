@@ -1,0 +1,143 @@
+@import "src/@sigsda/scss/sigsda";
+
+sigsda-login {
+
+    #login {
+        width: 100%;
+        background-color:#e5e5e5;
+        color:#444142;
+       // background: url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
+        background-size: cover;
+
+        #login-form-wrapper {
+            flex: 1 0 auto;
+            padding: 32px;
+
+            @include media-breakpoint('xs') {
+                padding: 16px;
+            }
+
+            #login-form {
+                background-color:#ffffff;
+                max-width: 400px;
+                padding: 15px 25px;
+                margin: 0 auto;
+                border-radius: 4px;              
+                text-align: center;
+
+                @include mat-elevation(16);
+
+                @include media-breakpoint('xs') {
+                    padding: 24px;
+                    width: 100%;
+                }
+
+                .logo {
+                    width: 128px;
+                    margin: 32px auto;
+                }
+
+                .title {                 
+                    font-family: "Gotham-Bold", Helvetica, Arial, sans-serif;
+                    font-size: 46px;
+                    letter-spacing: 2px;
+                    margin-bottom: 0;
+                }
+
+                .sub-title{
+                    font-family: "GothamBook", Helvetica, Arial, sans-serif;
+                    font-size: 10px;
+                    margin-top: 0;
+                    margin-bottom: 15px;
+                }
+
+                form {
+                    width: 100%;
+                    text-align: left;
+
+                    mat-form-field {
+                        width: 100%;
+                    }
+
+                    mat-checkbox {
+                        margin: 0;
+                    }
+
+                    .remember-forgot-password {
+                        font-size: 13px;
+                        margin-top: 8px;
+
+                        .remember-me {
+                            margin-bottom: 16px
+                        }
+
+                        .forgot-password {
+                            font-size: 13px;
+                            font-weight: 600;
+                            margin-bottom: 16px;
+                            color: #0056b3;
+                        }
+                    }
+                    .submit-button {
+                        width: 320px;
+                        margin: 16px auto;
+                        display: block;
+
+                        @include media-breakpoint('xs') {
+                            width: 90%;
+                        }
+                    }
+                    .mat-form-field-infix{
+                        margin-left: 10px;
+                    }
+                }                
+
+                .small{
+                    font-size: 80%;
+                    font-weight: 400;
+                    padding-bottom: 10px;
+                    .text {
+                        margin-right: 8px;
+                        .text-icon{
+                            font-size: inherit;
+                        }
+                    }                   
+                }
+
+                .separator {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    border: 0;
+                    border-top-color: currentcolor;
+                    border-top-style: none;
+                    border-top-width: 0px;
+                    border-top: 1px solid #d5d5d5;                    
+                }
+
+                button {
+                    background-color: #1565C0;
+                    width: 192px;
+                    text-transform: none;
+                    color: #FFFFFF;
+                    font-size: 13px;                  
+
+                    @include media-breakpoint('xs') {
+                        width: 80%;
+                    }                   
+                }
+
+                .footer{
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 50px;
+                    .text-muted {
+                        color: #6c757d !important;
+                        margin: 16px 0;
+                        font-size: 10px !important;
+                    }
+                }      
+            }
+        }
+    }
+}

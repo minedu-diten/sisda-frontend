@@ -1,0 +1,77 @@
+<div id="login" fxLayout="column">
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    <img src="assets/images/logo-minedu.png">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="login-form-wrapper" fxLayout="column" fxLayoutAlign="center center">
+        <div id="login-form" [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
+            <div class="title">SISDA</div>
+            <div class="sub-title">SISTEMA INTEGRADO DE GESTIÓN
+                <br> DE PERSONAL EN EL SECTOR EDUCACIÓN
+            </div>
+            <form name="loginForm" [formGroup]="loginForm" novalidate>
+                <mat-form-field appearance="fill">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput formControlName="email">
+                    <mat-icon matPrefix class="secondary-text">supervisor_account</mat-icon>
+                    <!-- <mat-error *ngIf="loginForm.get('email').hasError('required')"> -->
+                    <mat-error>
+                        Usuario es obligatorio
+                    </mat-error>
+                    <!-- <mat-error *ngIf="!loginForm.get('email').hasError('required') &&
+                                loginForm.get('email').hasError('email')">
+                        Please enter a valid email address
+                    </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput type="password" formControlName="password">
+                    <mat-icon matPrefix class="secondary-text">enhanced_encryption</mat-icon>
+                    <mat-error>
+                        Contraseña es obligatorio
+                    </mat-error>
+                </mat-form-field>
+
+                <sigsda-button-login [sisdaForm]="loginForm" [working]="working"></sigsda-button-login>
+                <div class="remember-forgot-password" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+                    <a class="forgot-password" [routerLink]="'/'">
+                        ¿Olvidó su contraseña?
+                    </a>
+                </div>
+            </form>
+
+            <div class="separator">
+            </div>
+            <div class="small" fxLayout="column" fxLayoutAlign="center start">
+                <span class="text"><strong>Atención de consultas</strong></span>
+            </div>
+            <div class="small" fxLayout="column" fxLayoutAlign="center start">
+                <span class="text">
+                    <mat-icon class="text-icon">local_phone</mat-icon>Teléfono (01) 615-5800 anexo 50505
+                </span>
+                <span class="text">
+                    <mat-icon class="text-icon">email</mat-icon>Correo electrónico mesadeayuda@minedu.gob.pe
+                </span>
+                <span class="text">
+                    <mat-icon class="text-icon">access_alarm</mat-icon>Atención de lunes a viernes de 9:00 a.m. a 6:00
+                    p.m.
+                </span>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted text-center">© 2020 Todos los derechos reservados. Ministerio de Educación.
+                <strong>SISDA</strong> - Sistema Integrado de Gestión de Personal en el Sector Educación. <strong>Version
+                    1.0</strong></p>
+        </div>
+    </footer>
+</div>
+

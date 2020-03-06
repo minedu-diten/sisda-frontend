@@ -1,5 +1,4 @@
-export interface SigsdaConfig
-{
+export interface SigsdaConfig {
     colorTheme: string;
     customScrollbars: boolean;
     layout: {

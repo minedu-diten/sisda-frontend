@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-    { path: '', redirectTo: 'sigsda', pathMatch: 'full' },
-    { path: 'sigsda', loadChildren: './pages/pages.module#PagesModule' },
+    { path: '', redirectTo: 'auth', pathMatch: 'full' },
+    { path: 'sisda', loadChildren: './pages/pages.module#PagesModule' },
+    { path: 'auth', loadChildren: './login/login.module#LoginModule' },
+    { path: 'menu', loadChildren: './home/home.module#HomeModule' },
     { path: 'sample', loadChildren: './sample/sample.module#SampleModule' }
 ];
 

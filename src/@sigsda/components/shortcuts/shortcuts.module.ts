@@ -17,7 +17,7 @@ import { SigsdaShortcutsComponent } from './shortcuts.component';
     declarations: [
         SigsdaShortcutsComponent
     ],
-    imports     : [
+    imports: [
         CommonModule,
         RouterModule,
         FlexLayoutModule,
@@ -30,10 +30,9 @@ import { SigsdaShortcutsComponent } from './shortcuts.component';
         MatListModule,
         MatTooltipModule
     ],
-    exports     : [
+    exports: [
         SigsdaShortcutsComponent
     ]
 })
-export class SigsdaShortcutsModule
-{
+export class SigsdaShortcutsModule {
 }

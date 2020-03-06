@@ -12,7 +12,7 @@ import { SigsdaSplashScreenService } from '@sigsda/services/splash-screen.servic
 import { navigation } from 'app/config/navigation';
 
 @Component({
-    selector   : 'app',
+    selector   : 'sigsda',
     templateUrl: './app.component.html',
     styleUrls  : ['./app.component.scss']
 })
