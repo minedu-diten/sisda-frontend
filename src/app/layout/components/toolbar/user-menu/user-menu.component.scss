@@ -1,4 +1,55 @@
-sigsda-user-menu{    
+ @import "src/@sigsda/scss/sigsda";
+.dialog-content {
+    display: contents;   
+    z-index: 3;
 
+    .title{
+        font-size: 14px;        
+    }
 
+    .sub-title{
+        font-size: 14px;  
+
+        .success-icon{
+            color: #28a745;
+        }
+    }   
+
+    .item-divider{
+        border-top: 1px solid #e9ecef;
+    }
+
+    .list-item{
+        height: 3.3rem;
+        font-size: 1.4rem;
+        cursor: pointer;
+
+        .list-icon{
+            font-size: 1.9rem;
+        }
+
+        &:hover{
+            background: #0073b7;
+            color: #FFFFFF;
+            .list-icon{
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    button {
+        background-color: #0073b7;
+        width: 90%;
+        text-transform: none;
+        color: #FFFFFF;
+        font-size: 1.195rem;   
+        white-space: normal;    
+        padding: .25rem .5rem;
+        line-height: 1.5;           
+
+        @include media-breakpoint('xs') {
+            width: 80%;
+        }                   
+    }
+    
 }
