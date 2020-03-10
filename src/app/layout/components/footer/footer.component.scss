@@ -3,7 +3,15 @@
     flex: 0 0 auto;
     z-index: 3;
 
-    .mat-toolbar {
+    .mat-menu{
+        background: #e5e5e5;
+        color: #444142;
+        border-top: 1px solid #dee2e6;   
+        font-size: 12px;
+        padding: 1rem;  
+    }
+
+    .mat-footer {
         background: #fff;
         color: #444142;
         border-top: 1px solid #dee2e6;   

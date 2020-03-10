@@ -1,0 +1,57 @@
+<div id="dialog-content-wrapper">
+    <mat-toolbar matDialogTitle class="m-0">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center" style="background: #fff;">
+            <span class="title dialog-title"></span>
+        </mat-toolbar-row>
+        <mat-toolbar-row class="toolbar-bottom pt-4 pb-10" fxLayout="column" fxLayoutAlign="center center"
+            style="background: #fff;">
+            <img src="assets/icons/user-avatar.png" class="avatar contact-avatar huge m-0"
+                [alt]="'MARITZA YANINA MILLA TARAZONA'" />
+            <div class="mt-8" style="font-size: 14px;">MARITZA YANINA MILLA TARAZONA</div>
+            <div style="font-size: 14px;"><small>Técnico de escalafón</small> </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="p-24 pb-0 m-0" fusePerfectScrollbar>
+        <!-- <button mat-menu-item>
+            <mat-icon>account_circle</mat-icon>
+            <span>My Profile</span>
+        </button>
+        <button mat-menu-item class="">
+            <mat-icon>mail</mat-icon>
+            <span>Inbox</span>
+        </button>
+        <button mat-menu-item class="">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+        </button> -->
+        <mat-list id="item-list-user">
+            <mat-divider></mat-divider>
+            <mat-list-item class="mat-list-item" role="listitem">
+                <mat-icon mat-list-icon>check_box</mat-icon>Procesos del sistema
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem">
+                <mat-icon mat-list-icon>account_box</mat-icon>Ver perfil
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem">
+                <mat-icon mat-list-icon>help</mat-icon>Ayuda
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem">
+                <mat-icon mat-list-icon>info</mat-icon>Preguntas frecuentes
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item role="listitem">
+                <mat-icon mat-list-icon>power_off</mat-icon>Cerrar sesión
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+
+    </div>
+
+    <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="end center">
+
+    </div>
+</div>

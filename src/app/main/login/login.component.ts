@@ -2,6 +2,7 @@ import { sigsdaAnimations } from '@sigsda/animations';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SigsdaConfigService } from '@sigsda/services/config.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'sigsda-login',
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
   working = false;
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private _sigsdaConfigService: SigsdaConfigService,
     private _formBuilder: FormBuilder
   ) {
@@ -41,5 +44,9 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', Validators.required]
     });
+  }
+
+  save(form: FormGroup) {
+    this.router.navigate(['/educarh/menu']);
   }
 }

@@ -7,10 +7,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SigsdaShortcutsModule } from '@sigsda/components';
 import { SigsdaSharedModule } from '@sigsda/shared.module';
 import { ToolbarComponent } from 'app/layout/components/toolbar/toolbar.component';
+import { UserMenuComponent } from './user-menu/user-menu.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
     declarations: [
-        ToolbarComponent
+        ToolbarComponent,
+        UserMenuComponent
     ],
     imports: [
         RouterModule,
@@ -18,7 +21,7 @@ import { ToolbarComponent } from 'app/layout/components/toolbar/toolbar.componen
         MatIconModule,
         MatMenuModule,
         MatToolbarModule,
-
+        MatListModule,
         SigsdaSharedModule,
         SigsdaShortcutsModule
     ],

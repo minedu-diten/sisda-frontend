@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import * as _ from 'lodash';
@@ -16,6 +16,10 @@ import { SigsdaSidebarService } from '@sigsda/components/sidebar/sidebar.service
 export class ToolbarComponent implements OnInit, OnDestroy {
     rightNavbar: boolean;
     hiddenNavbar: boolean;
+
+    @Input()
+    toolbarMenu: boolean = false;
+
     private _unsubscribeAll: Subject<any>;
 
     constructor(

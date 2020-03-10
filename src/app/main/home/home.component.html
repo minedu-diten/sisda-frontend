@@ -1,1 +1,142 @@
-<p>home works!</p>
+<div id="main">
+    <ng-container>
+        <toolbar [toolbarMenu]="toolbarMenu"
+            [ngClass]="sigsdaConfig.layout.toolbar.customBackgroundColor === true ? sigsdaConfig.layout.toolbar.position + ' ' + sigsdaConfig.layout.toolbar.background : sigsdaConfig.layout.toolbar.position">
+        </toolbar>
+    </ng-container>
+
+    <div id="boards" fxLayout="column" fxLayoutAlign="start center" fxFlex fusePerfectScrollbar>
+        <div class="header pt-44 pt-md-88" fxLayout="column" fxLayoutAlign="center center" fxFlex="0 0 auto"
+            [@animate]="{value:'*',params:{delay:'100ms'}}">
+            <div class="title">SISDA</div>
+            <div class="sub-title">SISTEMA INTEGRADO DE GESTIÓN
+                <br> DE PERSONAL EN EL SECTOR EDUCACIÓN
+            </div>
+        </div>
+        <div class="board-list" fxFlex="0 0 auto" fxLayout="row wrap" fxLayoutAlign="start center"
+            [@animate]="{value:'*',params:{y:'100%'}}">
+            <mat-card class="tp-card" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="30"
+                [@animate]="{value:'*',params:{y:'100%'}}" (click)="goToMenu(true)">
+                <mat-card-content>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <div class="mr-3 align-self-center header">
+                            <mat-icon class="s-56">assessment</mat-icon>
+                        </div>
+                        <div>
+                            <h2 class="mt-0 mb-0">ESCALAFÓN</h2>
+                            <h6 class="mb-0 mt-0">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </h6>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="card-footer">
+                    <div class="footer-button" fxLayout="row" fxLayoutAlign="start center">
+                        <span>Ingresar </span>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+            <mat-card class="tp-card" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="30"
+                [@animate]="{value:'*',params:{y:'100%'}}" (click)="goToMenu(true)">
+                <mat-card-content>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <div class="mr-3 align-self-center header">
+                            <mat-icon class="s-56">assessment</mat-icon>
+                        </div>
+                        <div>
+                            <h2 class="mt-0 mb-0">PERSONAL</h2>
+                            <h6 class="mb-0 mt-0">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </h6>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="card-footer">
+                    <div class="footer-button" fxLayout="row" fxLayoutAlign="start center">
+                        <span>Ingresar </span>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+            <mat-card class="tp-card-disabled" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="30"
+                [@animate]="{value:'*',params:{y:'100%'}}" (click)="goToMenu(false)">
+                <mat-card-content>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <div class="mr-3 align-self-center header">
+                            <mat-icon class="s-56">assessment</mat-icon>
+                        </div>
+                        <div>
+                            <h2 class="mt-0 mb-0">PLAZAS</h2>
+                            <h6 class="mb-0 mt-0">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </h6>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="card-footer">
+                    <div class="footer-button" fxLayout="row" fxLayoutAlign="start center">
+                        <span>Ingresar </span>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+            <mat-card class="tp-card-disabled" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="30"
+                [@animate]="{value:'*',params:{y:'100%'}}" (click)="goToMenu(false)">
+                <mat-card-content>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <div class="mr-3 align-self-center header">
+                            <mat-icon class="s-56">assessment</mat-icon>
+                        </div>
+                        <div>
+                            <h2 class="mt-0 mb-0">COMPENSACIONES</h2>
+                            <h6 class="mb-0 mt-0">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </h6>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="card-footer">
+                    <div class="footer-button" fxLayout="row" fxLayoutAlign="start center">
+                        <span>Ingresar </span>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+            <mat-card class="tp-card-disabled" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="30"
+                [@animate]="{value:'*',params:{y:'100%'}}" (click)="goToMenu(false)">
+                <mat-card-content>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                        <div class="mr-3 align-self-center header">
+                            <mat-icon class="s-56">assessment</mat-icon>
+                        </div>
+                        <div>
+                            <h2 class="mt-0 mb-0">RESOLUCIONES</h2>
+                            <h6 class="mb-0 mt-0">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </h6>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="card-footer">
+                    <div class="footer-button" fxLayout="row" fxLayoutAlign="start center">
+                        <span>Ingresar </span>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+
+        </div>
+    </div>
+    <ng-container>
+        <footer [menuColor]="menuColor" class="text-center"
+            *ngIf="sigsdaConfig.layout.footer.position === 'below-fixed'"
+            [ngClass]="sigsdaConfig.layout.footer.customBackgroundColor === true ? sigsdaConfig.layout.footer.position + ' ' + sigsdaConfig.layout.footer.background : sigsdaConfig.layout.footer.position">
+        </footer>
+    </ng-container>
+</div>

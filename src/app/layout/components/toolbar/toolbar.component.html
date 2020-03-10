@@ -10,8 +10,14 @@
                     <img class="logo-icon" src="assets/images/logo-minedu.png">
                 </div>
             </div> -->
-            <div class="px-8 px-md-16">        
+            <div class="px-8 px-md-16" *ngIf="!toolbarMenu">        
                 <span class="titulo-modulo">ESCALAFÓN</span>                       
+            </div>
+            <div class="px-8 px-md-16" *ngIf="toolbarMenu" fxLayout="row" fxLayoutAlign="start center">      
+                <div class="logo">
+                    <img class="logo-icon" src="assets/images/logo-educarh-white.png">
+                </div>  
+                <span class="titulo-menu">SISDA</span>                       
             </div>
         </div>
 
@@ -23,19 +29,8 @@
                     <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
                 </div>
             </button>
-            <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
-                <button mat-menu-item>
-                    <mat-icon>account_circle</mat-icon>
-                    <span>My Profile</span>
-                </button>
-                <button mat-menu-item class="">
-                    <mat-icon>mail</mat-icon>
-                    <span>Inbox</span>
-                </button>
-                <button mat-menu-item class="">
-                    <mat-icon>exit_to_app</mat-icon>
-                    <span>Logout</span>
-                </button>
+            <mat-menu #userMenu="matMenu" [overlapTrigger]="false" class="w-280 mr-20 mat-menu-toolbar">
+              <sigsda-user-menu></sigsda-user-menu>
             </mat-menu>
         </div>
     </div>

@@ -41,9 +41,18 @@ toolbar {
         padding: 10px;
         font-weight: 700;
     }
+    .titulo-menu{
+        font-size: 26px;        
+        padding: 5px;
+        font-weight: 700;
+    }
     .navbar-toggle-button {
         min-width: 56px;
         height: 56px;
+
+    }
+    .mat-menu-toolbar{
+        background-color: #fff !important;
     }
 
     .toolbar-separator {
@@ -53,5 +62,5 @@ toolbar {
         @include media-breakpoint('xs') {
             height: 56px;
         }
-    }
+    }    
 }

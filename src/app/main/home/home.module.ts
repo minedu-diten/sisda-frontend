@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { SigsdaSharedModule } from '@sigsda/shared.module';
+import { ToolbarModule } from 'app/layout/components/toolbar/toolbar.module';
+import { FooterModule } from 'app/layout/components/footer/footer.module';
+import { MaterialModule } from 'app/material/material.module';
 
 const routes = [
   {
@@ -16,7 +19,10 @@ const routes = [
   ],
   imports: [
     RouterModule.forChild(routes), 
-    SigsdaSharedModule
+    SigsdaSharedModule,
+    ToolbarModule,
+    FooterModule,
+    MaterialModule
   ],
   exports: [
     HomeComponent
