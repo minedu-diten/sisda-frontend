@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  save(form: FormGroup) {
+  save() {
     this.router.navigate(['/educarh/menu']);
   }
 }
