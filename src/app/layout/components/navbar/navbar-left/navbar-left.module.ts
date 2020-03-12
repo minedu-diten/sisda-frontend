@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { NavbarLeftComponent } from './navbar-left.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { SigsdaSharedModule } from '@sigsda/shared.module';
-import { SigsdaNavigationModule } from '@sigsda/components';
+import { SisdaSharedModule } from '@sisda/shared.module';
+import { SisdaNavigationModule } from '@sisda/components';
 
 
 
@@ -12,8 +12,8 @@ import { SigsdaNavigationModule } from '@sigsda/components';
   imports: [
     MatButtonModule,
     MatIconModule,
-    SigsdaSharedModule,
-    SigsdaNavigationModule
+    SisdaSharedModule,
+    SisdaNavigationModule
   ],
   exports: [NavbarLeftComponent]
 })

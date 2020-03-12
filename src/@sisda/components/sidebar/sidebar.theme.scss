@@ -1,0 +1,16 @@
+@mixin sisda-sidebar-theme($theme) {
+
+    $background: map-get($theme, background);
+
+    sisda-sidebar {
+        background: map-get($background, background);
+    }
+
+    .sisda-sidebar-overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+
+        &.sisda-sidebar-overlay-invisible {
+            background-color: transparent;
+        }
+    }
+}

@@ -4,21 +4,21 @@ import { Platform } from '@angular/cdk/platform';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { SigsdaConfigService } from '@sigsda/services/config.service';
-import { SigsdaNavigationService } from '@sigsda/components/navigation/navigation.service';
-import { SigsdaSidebarService } from '@sigsda/components/sidebar/sidebar.service';
-import { SigsdaSplashScreenService } from '@sigsda/services/splash-screen.service';
+import { SisdaConfigService } from '@sisda/services/config.service';
+import { SisdaNavigationService } from '@sisda/components/navigation/navigation.service';
+import { SisdaSidebarService } from '@sisda/components/sidebar/sidebar.service';
+import { SisdaSplashScreenService } from '@sisda/services/splash-screen.service';
 
 import { navigation } from 'app/config/navigation';
 
 @Component({
-    selector   : 'sigsda',
+    selector   : 'sisda',
     templateUrl: './app.component.html',
     styleUrls  : ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy
 {
-    sigsdaConfig: any;
+    sisdaConfig: any;
     navigation: any;
 
     // Private
@@ -26,10 +26,10 @@ export class AppComponent implements OnInit, OnDestroy
   
     constructor(
         @Inject(DOCUMENT) private document: any,
-        private _sigsdaConfigService: SigsdaConfigService,
-        private _sigsdaNavigationService: SigsdaNavigationService,
-        private _sigsdaSidebarService: SigsdaSidebarService,
-        private _sigsdaSplashScreenService: SigsdaSplashScreenService,
+        private _sisdaConfigService: SisdaConfigService,
+        private _sisdaNavigationService: SisdaNavigationService,
+        private _sisdaSidebarService: SisdaSidebarService,
+        private _sisdaSplashScreenService: SisdaSplashScreenService,
         private _platform: Platform
     )
     {
@@ -37,10 +37,10 @@ export class AppComponent implements OnInit, OnDestroy
         this.navigation = navigation;
 
         // Register the navigation to the service
-        this._sigsdaNavigationService.register('main', this.navigation);
+        this._sisdaNavigationService.register('main', this.navigation);
 
         // Set the main navigation as our current navigation
-        this._sigsdaNavigationService.setCurrentNavigation('main');
+        this._sisdaNavigationService.setCurrentNavigation('main');
 
         
         // Add is-mobile class to the body if the platform is mobile
@@ -60,14 +60,14 @@ export class AppComponent implements OnInit, OnDestroy
     ngOnInit(): void
     {
         // Subscribe to config changes
-        this._sigsdaConfigService.config
+        this._sisdaConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config) => {
 
-                this.sigsdaConfig = config;
+                this.sisdaConfig = config;
 
                 // Boxed
-                if ( this.sigsdaConfig.layout.width === 'boxed' )
+                if ( this.sisdaConfig.layout.width === 'boxed' )
                 {
                     this.document.body.classList.add('boxed');
                 }
@@ -87,7 +87,7 @@ export class AppComponent implements OnInit, OnDestroy
                     }
                 }
 
-                this.document.body.classList.add(this.sigsdaConfig.colorTheme);
+                this.document.body.classList.add(this.sisdaConfig.colorTheme);
             });
     }
 
@@ -112,6 +112,6 @@ export class AppComponent implements OnInit, OnDestroy
      */
     toggleSidebarOpen(key): void
     {
-        this._sigsdaSidebarService.getSidebar(key).toggleOpen();
+        this._sisdaSidebarService.getSidebar(key).toggleOpen();
     }
 }

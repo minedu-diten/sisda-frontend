@@ -1,0 +1,13 @@
+@import 'src/@sisda/scss/sisda';
+
+sisda-navigation {
+    display: flex;
+    flex: 1 0 auto;
+    padding-top:10px;
+    
+    > .nav {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+}

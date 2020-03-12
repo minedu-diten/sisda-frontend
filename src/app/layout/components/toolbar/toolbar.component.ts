@@ -3,8 +3,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import * as _ from 'lodash';
 
-import { SigsdaConfigService } from '@sigsda/services/config.service';
-import { SigsdaSidebarService } from '@sigsda/components/sidebar/sidebar.service';
+import { SisdaConfigService } from '@sisda/services/config.service';
+import { SisdaSidebarService } from '@sisda/components/sidebar/sidebar.service';
 
 @Component({
     selector: 'toolbar',
@@ -23,14 +23,14 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     private _unsubscribeAll: Subject<any>;
 
     constructor(
-        private _sigsdaConfigService: SigsdaConfigService,
-        private _sigsdaSidebarService: SigsdaSidebarService,
+        private _sisdaConfigService: SisdaConfigService,
+        private _sisdaSidebarService: SisdaSidebarService,
     ) {
         this._unsubscribeAll = new Subject();
     }
 
     ngOnInit(): void {
-        this._sigsdaConfigService.config
+        this._sisdaConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((settings) => {
                 this.rightNavbar = settings.layout.navbar.position === 'right';
@@ -44,6 +44,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     }
 
     toggleSidebarOpen(key): void {
-        this._sigsdaSidebarService.getSidebar(key).toggleOpen();
+        this._sisdaSidebarService.getSidebar(key).toggleOpen();
     }
 }

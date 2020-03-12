@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'sigsda-button-login',
+  selector: 'sisda-button-login',
   templateUrl: './button-login.component.html',
   styleUrls: ['./button-login.component.scss']
 })

@@ -19,8 +19,8 @@
             "dom"
         ],
         "paths": {
-            "@sigsda": [
-                "@sigsda/"
+            "@sisda": [
+                "@sisda/"
             ]
         }
     },

@@ -1,15 +1,15 @@
-import { sigsdaAnimations } from '@sigsda/animations';
+import { sisdaAnimations } from '@sisda/animations';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SigsdaConfigService } from '@sigsda/services/config.service';
+import { SisdaConfigService } from '@sisda/services/config.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'sigsda-login',
+  selector: 'sisda-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  animations: sigsdaAnimations
+  animations: sisdaAnimations
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -18,10 +18,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private _sigsdaConfigService: SigsdaConfigService,
+    private _sisdaConfigService: SisdaConfigService,
     private _formBuilder: FormBuilder
   ) {
-    this._sigsdaConfigService.config = {
+    this._sisdaConfigService.config = {
       layout: {
         navbar: {
           hidden: true

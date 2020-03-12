@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sigsda-button-cancel',
+  selector: 'sisda-button-cancel',
   templateUrl: './button-cancel.component.html',
   styleUrls: ['./button-cancel.component.scss']
 })

@@ -1,21 +1,21 @@
 // -----------------------------------------------------------------------------------------------------
-// @ Custom color maps for Sigsda
+// @ Custom color maps for Sisda
 // -----------------------------------------------------------------------------------------------------
-$sigsda-white: (
+$sisda-white: (
     500: white,
     contrast: (
         500: $dark-primary-text
     )
 );
 
-$sigsda-black: (
+$sisda-black: (
     500: black,
     contrast: (
         500: $light-primary-text,
     )
 );
 
-$sigsda-navy: (
+$sisda-navy: (
     50: #ECECEE,
     100: #C5C6CB,
     200: #9EA1A9,
@@ -48,14 +48,14 @@ $sigsda-navy: (
     )
 );
 
-// Generate Sigsda color classes for custom palettes
+// Generate Sisda color classes for custom palettes
 $custom_palettes: (
-    sigsda-white: $sigsda-white,
-    sigsda-black: $sigsda-black,
-    sigsda-navy: $sigsda-navy
+    sisda-white: $sisda-white,
+    sisda-black: $sisda-black,
+    sisda-navy: $sisda-navy
 );
 
-@include sigsda-color-classes($custom_palettes);
+@include sisda-color-classes($custom_palettes);
 
 // -----------------------------------------------------------------------------------------------------
 // @ Typography
@@ -90,8 +90,8 @@ $typography: mat-typography-config(
 // -----------------------------------------------------------------------------------------------------
 
 // Define the primary, accent and warn palettes
-$default-primary-palette: mat-palette($sigsda-navy);
-$default-accent-palette: mat-palette($sigsda-navy,500,600,800);
+$default-primary-palette: mat-palette($sisda-navy);
+$default-accent-palette: mat-palette($sisda-navy,500,600,800);
 $default-warn-palette: mat-palette($mat-red);
 
 // Create the Material theme object
@@ -104,20 +104,20 @@ body.theme-default {
     // Create an Angular Material theme from the $theme map
     @include angular-material-theme($theme);
 
-    // Apply the theme to the Sigsda Core
-    @include sigsda-core-theme($theme);
+    // Apply the theme to the Sisda Core
+    @include sisda-core-theme($theme);
 
     // Apply the theme to the user components
     @include components-theme($theme);
 
-    // Generate Sigsda color classes for primary, accent and warn colors
+    // Generate Sisda color classes for primary, accent and warn colors
     $palettes: (
         primary: $default-primary-palette,
         accent: $default-accent-palette,
         warn: $default-warn-palette
     );
 
-    @include sigsda-color-classes($palettes);
+    @include sisda-color-classes($palettes);
 }
 
 // -----------------------------------------------------------------------------------------------------
@@ -125,7 +125,7 @@ body.theme-default {
 // -----------------------------------------------------------------------------------------------------
 
 // Define the primary, accent and warn palettes
-$yellow-light-theme-primary-palette: mat-palette($sigsda-navy, 600, 400, 700);
+$yellow-light-theme-primary-palette: mat-palette($sisda-navy, 600, 400, 700);
 $yellow-light-theme-accent-palette: mat-palette($mat-yellow, 600, 400, 700);
 $yellow-light-theme-warn-palette: mat-palette($mat-red);
 
@@ -139,20 +139,20 @@ body.theme-yellow-light {
     // Generate the Angular Material theme
     @include angular-material-theme($yellow-light-theme);
 
-    // Apply the theme to the Sigsda Core
-    @include sigsda-core-theme($yellow-light-theme);
+    // Apply the theme to the Sisda Core
+    @include sisda-core-theme($yellow-light-theme);
 
     // Apply the theme to the user components
     @include components-theme($yellow-light-theme);
 
-    // Generate Sigsda color classes for primary, accent and warn colors
+    // Generate Sisda color classes for primary, accent and warn colors
     $palettes: (
         primary: $yellow-light-theme-primary-palette,
         accent: $yellow-light-theme-accent-palette,
         warn: $yellow-light-theme-warn-palette
     );
 
-    @include sigsda-color-classes($palettes);
+    @include sisda-color-classes($palettes);
 }
 
 // -----------------------------------------------------------------------------------------------------
@@ -174,20 +174,20 @@ body.theme-blue-gray-dark {
     // Generate the Angular Material theme
     @include angular-material-theme($blue-gray-dark-theme);
 
-    // Apply the theme to the Sigsda Core
-    @include sigsda-core-theme($blue-gray-dark-theme);
+    // Apply the theme to the Sisda Core
+    @include sisda-core-theme($blue-gray-dark-theme);
 
     // Apply the theme to the user components
     @include components-theme($blue-gray-dark-theme);
 
-    // Generate Sigsda color classes for primary, accent and warn colors
+    // Generate Sisda color classes for primary, accent and warn colors
     $palettes: (
         primary: $blue-gray-dark-theme-primary-palette,
         accent: $blue-gray-dark-theme-accent-palette,
         warn: $blue-gray-dark-theme-warn-palette
     );
 
-    @include sigsda-color-classes($palettes);
+    @include sisda-color-classes($palettes);
 }
 
 // -----------------------------------------------------------------------------------------------------
@@ -209,18 +209,18 @@ body.theme-pink-dark {
     // Generate the Angular Material theme
     @include angular-material-theme($pink-dark-theme);
 
-    // Apply the theme to the Sigsda Core
-    @include sigsda-core-theme($pink-dark-theme);
+    // Apply the theme to the Sisda Core
+    @include sisda-core-theme($pink-dark-theme);
 
     // Apply the theme to the user components
     @include components-theme($pink-dark-theme);
 
-    // Generate Sigsda color classes for primary, accent and warn colors
+    // Generate Sisda color classes for primary, accent and warn colors
     $palettes: (
         primary: $pink-dark-theme-primary-palette,
         accent: $pink-dark-theme-accent-palette,
         warn: $pink-dark-theme-warn-palette
     );
 
-    @include sigsda-color-classes($palettes);
+    @include sisda-color-classes($palettes);
 }

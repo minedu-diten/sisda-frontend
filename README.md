@@ -1,10 +1,10 @@
-# SIGSDA - MINEDU
+# SISDA - MINEDU
 
 Angular 8 and Angular Material
 
 ## The Community
 
-Share your ideas, discuss Sigsda and help each other.
+Share your ideas, discuss Sisda and help each other.
 
 ## Development server
 

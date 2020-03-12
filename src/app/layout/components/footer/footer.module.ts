@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SigsdaSharedModule } from '@sigsda/shared.module';
+import { SisdaSharedModule } from '@sisda/shared.module';
 import { FooterComponent } from 'app/layout/components/footer/footer.component';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { FooterComponent } from 'app/layout/components/footer/footer.component';
         MatButtonModule,
         MatIconModule,
         MatToolbarModule,
-        SigsdaSharedModule
+        SisdaSharedModule
     ],
     exports: [
         FooterComponent

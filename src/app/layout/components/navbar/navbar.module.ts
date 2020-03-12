@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { SigsdaSharedModule } from '@sigsda/shared.module';
+import { SisdaSharedModule } from '@sisda/shared.module';
 
 import { NavbarComponent } from 'app/layout/components/navbar/navbar.component';
 import { NavbarLeftModule } from './navbar-left/navbar-left.module';
@@ -10,7 +10,7 @@ import { NavbarLeftModule } from './navbar-left/navbar-left.module';
         NavbarComponent
     ],
     imports: [
-        SigsdaSharedModule,
+        SisdaSharedModule,
         NavbarLeftModule
     ],
     exports: [

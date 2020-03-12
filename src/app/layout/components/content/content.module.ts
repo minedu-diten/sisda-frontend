@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SigsdaSharedModule } from '@sigsda/shared.module';
+import { SisdaSharedModule } from '@sisda/shared.module';
 import { ContentComponent } from 'app/layout/components/content/content.component';
 
 @NgModule({
@@ -9,7 +9,7 @@ import { ContentComponent } from 'app/layout/components/content/content.componen
     ],
     imports: [
         RouterModule,
-        SigsdaSharedModule
+        SisdaSharedModule
     ],
     exports: [
         ContentComponent

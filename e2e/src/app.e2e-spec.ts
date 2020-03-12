@@ -1,16 +1,16 @@
-import { SigsdaPage } from './app.po';
+import { SisdaPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('Sigsda App', () => {
-    let page: SigsdaPage;
+describe('Sisda App', () => {
+    let page: SisdaPage;
 
     beforeEach(() => {
-        page = new SigsdaPage();
+        page = new SisdaPage();
     });
 
     it('should display welcome message', () => {
         page.navigateTo();
-        expect(page.getParagraphText()).toEqual('Welcome to Sigsda!');
+        expect(page.getParagraphText()).toEqual('Welcome to Sisda!');
     });
 
     afterEach(async () => {

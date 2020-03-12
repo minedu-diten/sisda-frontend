@@ -4,11 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
-import { SigsdaModule } from '@sigsda/sigsda.module';
-import { SigsdaSharedModule } from '@sigsda/shared.module';
-import { SigsdaProgressBarModule, SigsdaSidebarModule } from '@sigsda/components';
+import { SisdaModule } from '@sisda/sisda.module';
+import { SisdaSharedModule } from '@sisda/shared.module';
+import { SisdaProgressBarModule, SisdaSidebarModule } from '@sisda/components';
 
-import { sigsdaConfig } from 'app/config/style-config';
+import { sisdaConfig } from 'app/config/style-config';
 
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
@@ -24,11 +24,11 @@ import { AppRoutingModule } from './app-routing.module';
         BrowserAnimationsModule,
         HttpClientModule,
         AppRoutingModule,    
-        // Sigsda modules
-        SigsdaModule.forRoot(sigsdaConfig),
-        SigsdaProgressBarModule,
-        SigsdaSharedModule,
-        SigsdaSidebarModule,
+        // Sisda modules
+        SisdaModule.forRoot(sisdaConfig),
+        SisdaProgressBarModule,
+        SisdaSharedModule,
+        SisdaSidebarModule,
         // App modules
         LayoutModule,
         SampleModule

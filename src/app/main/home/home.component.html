@@ -1,7 +1,7 @@
 <div id="main">
     <ng-container>
         <toolbar [toolbarMenu]="toolbarMenu"
-            [ngClass]="sigsdaConfig.layout.toolbar.customBackgroundColor === true ? sigsdaConfig.layout.toolbar.position + ' ' + sigsdaConfig.layout.toolbar.background : sigsdaConfig.layout.toolbar.position">
+            [ngClass]="sisdaConfig.layout.toolbar.customBackgroundColor === true ? sisdaConfig.layout.toolbar.position + ' ' + sisdaConfig.layout.toolbar.background : sisdaConfig.layout.toolbar.position">
         </toolbar>
     </ng-container>
 
@@ -135,8 +135,8 @@
     </div>
     <ng-container>
         <footer [menuColor]="menuColor" class="text-center"
-            *ngIf="sigsdaConfig.layout.footer.position === 'below-fixed'"
-            [ngClass]="sigsdaConfig.layout.footer.customBackgroundColor === true ? sigsdaConfig.layout.footer.position + ' ' + sigsdaConfig.layout.footer.background : sigsdaConfig.layout.footer.position">
+            *ngIf="sisdaConfig.layout.footer.position === 'below-fixed'"
+            [ngClass]="sisdaConfig.layout.footer.customBackgroundColor === true ? sisdaConfig.layout.footer.position + ' ' + sisdaConfig.layout.footer.background : sisdaConfig.layout.footer.position">
         </footer>
     </ng-container>
 </div>

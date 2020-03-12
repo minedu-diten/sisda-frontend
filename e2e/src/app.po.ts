@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class SigsdaPage
+export class SisdaPage
 {
     navigateTo(): Promise<any>
     {

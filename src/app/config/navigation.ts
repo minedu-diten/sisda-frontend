@@ -1,6 +1,6 @@
-import { SigsdaNavigation } from '@sigsda/types';
+import { SisdaNavigation } from '@sisda/types';
 
-export const navigation: SigsdaNavigation[] = [
+export const navigation: SisdaNavigation[] = [
     {
         id: 'sample',
         title: 'Ejemplo',

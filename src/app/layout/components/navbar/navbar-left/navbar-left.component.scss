@@ -1,15 +1,15 @@
-@import "src/@sigsda/scss/sigsda";
+@import "src/@sisda/scss/sisda";
 
-sigsda-sidebar {
+sisda-sidebar {
 
-    &.navbar-sigsda-sidebar {
+    &.navbar-sisda-sidebar {
         overflow: hidden;
 
         &.folded:not(.unfolded) {
 
             navbar {
 
-                sigsda-navbar-left {
+                sisda-navbar-left {
 
                     .navbar-top {
                         padding: 12px 0;
@@ -99,7 +99,7 @@ navbar {
         }
     }
 
-    sigsda-navbar-left {
+    sisda-navbar-left {
         display: flex;
         flex-direction: column;
         width: 100%;

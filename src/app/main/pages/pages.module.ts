@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { EscalafonModule } from './escalafon/escalafon.module';
-import { SigsdaSharedModule } from '@sigsda/shared.module';
+import { SisdaSharedModule } from '@sisda/shared.module';
 import { ButtonCancelComponent } from '../components/button-cancel/button-cancel.component';
 import { ButtonSaveComponent } from '../components/button-save/button-save.component';
 import { ButtonDeleteComponent } from '../components/button-delete/button-delete.component';
@@ -15,7 +15,7 @@ import { ButtonDeleteComponent } from '../components/button-delete/button-delete
     CommonModule,
     PagesRoutingModule,
     EscalafonModule,
-    SigsdaSharedModule
+    SisdaSharedModule
   ]
 })
 export class PagesModule { }

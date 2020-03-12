@@ -1,7 +1,7 @@
-<div class="navbar-top" [ngClass]="sigsdaConfig.layout.navbar.secondaryBackground">
+<div class="navbar-top" [ngClass]="sisdaConfig.layout.navbar.secondaryBackground">
     <div class="logo">
         <img class="logo-icon" src="assets/images/logo-educarh-white.png">
-        <span class="logo-text primary-text">SIGSDA</span>
+        <span class="logo-text primary-text">SISDA</span>
     </div>
     <div class="buttons">
         <button mat-icon-button class="toggle-sidebar-folded" (click)="toggleSidebarFolded()" fxHide.lt-lg>
@@ -14,11 +14,11 @@
 </div>
 
 
-<div class="navbar-scroll-container" [ngClass]="sigsdaConfig.layout.navbar.primaryBackground" sigsdaPerfectScrollbar
-    [sigsdaPerfectScrollbarOptions]="{suppressScrollX: true}">
+<div class="navbar-scroll-container" [ngClass]="sisdaConfig.layout.navbar.primaryBackground" sisdaPerfectScrollbar
+    [sisdaPerfectScrollbarOptions]="{suppressScrollX: true}">
 
-    <div class="user" fxLayout="row" [ngClass]="sigsdaConfig.layout.navbar.secondaryBackground">
-        <div class="avatar-container" [ngClass]="sigsdaConfig.layout.navbar.primaryBackground">
+    <div class="user" fxLayout="row" [ngClass]="sisdaConfig.layout.navbar.secondaryBackground">
+        <div class="avatar-container" [ngClass]="sisdaConfig.layout.navbar.primaryBackground">
             <mat-icon class="s-30" fxHide.sm>account_circle</mat-icon>
         </div>
         <div fxLayout="column">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="navbar-content">
-        <sigsda-navigation class="sisda-navbar" layout="vertical"></sigsda-navigation>
+        <sisda-navigation class="sisda-navbar" layout="vertical"></sisda-navigation>
     </div>
 
 </div>

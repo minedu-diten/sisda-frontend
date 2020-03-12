@@ -4,8 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SigsdaShortcutsModule } from '@sigsda/components';
-import { SigsdaSharedModule } from '@sigsda/shared.module';
+import { SisdaShortcutsModule } from '@sisda/components';
+import { SisdaSharedModule } from '@sisda/shared.module';
 import { ToolbarComponent } from 'app/layout/components/toolbar/toolbar.component';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { MatListModule } from '@angular/material/list';
@@ -22,8 +22,8 @@ import { MatListModule } from '@angular/material/list';
         MatMenuModule,
         MatToolbarModule,
         MatListModule,
-        SigsdaSharedModule,
-        SigsdaShortcutsModule
+        SisdaSharedModule,
+        SisdaShortcutsModule
     ],
     exports: [
         ToolbarComponent

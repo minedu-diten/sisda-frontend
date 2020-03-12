@@ -1,0 +1,11 @@
+<div class="nav vertical">
+    <ng-container>
+        <ng-container *ngFor="let item of navigation">
+
+            <sisda-nav-vertical-group *ngIf="item.type=='group'" [item]="item"></sisda-nav-vertical-group>
+            <sisda-nav-vertical-collapsable *ngIf="item.type=='collapsable'"
+                                           [item]="item"></sisda-nav-vertical-collapsable>
+            <sisda-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></sisda-nav-vertical-item>
+        </ng-container>
+    </ng-container>
+</div>

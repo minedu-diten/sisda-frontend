@@ -13,7 +13,7 @@
             true,
             "attribute",
             [
-                "sigsda",
+                "sisda",
                 ""
             ],
             "camelCase"
@@ -23,7 +23,7 @@
             "element",
             "attribute",
             [
-                "sigsda",
+                "sisda",
                 ""
             ],
             [

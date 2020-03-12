@@ -1,16 +1,16 @@
-import { SigsdaConfig } from '@sigsda/types';
+import { SisdaConfig } from '@sisda/types';
 
-export const sigsdaConfig: SigsdaConfig = {
+export const sisdaConfig: SisdaConfig = {
     // Color themes can be defined in src/app/app.theme.scss
     colorTheme: 'theme-default',
     customScrollbars: true,
     layout: {
-        style: 'sigsda-layout',
+        style: 'sisda-layout',
         width: 'fullwidth',
         navbar: {
-            primaryBackground: 'sigsda-navy-700',
-            //secondaryBackground: 'sigsda-navy-900',
-            secondaryBackground: 'sigsda-navy-700',
+            primaryBackground: 'sisda-navy-700',
+            //secondaryBackground: 'sisda-navy-900',
+            secondaryBackground: 'sisda-navy-700',
             folded: false,
             hidden: false,
             position: 'left',
@@ -18,13 +18,13 @@ export const sigsdaConfig: SigsdaConfig = {
         },
         toolbar: {
             customBackgroundColor: false,
-            background: 'sigsda-white-500',
+            background: 'sisda-white-500',
             hidden: false,
             position: 'below-static'
         },
         footer: {
             customBackgroundColor: true,
-            background: 'sigsda-navy-900',
+            background: 'sisda-navy-900',
             hidden: false,
             position: 'below-fixed'
         },

@@ -3,48 +3,48 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { delay, filter, take, takeUntil } from 'rxjs/operators';
 
-import { SigsdaConfigService } from '@sigsda/services/config.service';
-import { SigsdaNavigationService } from '@sigsda/components/navigation/navigation.service';
-import { SigsdaPerfectScrollbarDirective } from '@sigsda/directives/sigsda-perfect-scrollbar/sigsda-perfect-scrollbar.directive';
-import { SigsdaSidebarService } from '@sigsda/components/sidebar/sidebar.service';
+import { SisdaConfigService } from '@sisda/services/config.service';
+import { SisdaNavigationService } from '@sisda/components/navigation/navigation.service';
+import { SisdaPerfectScrollbarDirective } from '@sisda/directives/sisda-perfect-scrollbar/sisda-perfect-scrollbar.directive';
+import { SisdaSidebarService } from '@sisda/components/sidebar/sidebar.service';
 
 @Component({
-    selector: 'sigsda-navbar-left',
+    selector: 'sisda-navbar-left',
     templateUrl: './navbar-left.component.html',
     styleUrls: ['./navbar-left.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class NavbarLeftComponent implements OnInit, OnDestroy {
-    sigsdaConfig: any;
+    sisdaConfig: any;
     navigation: any;
 
-    private _sigsdaPerfectScrollbar: SigsdaPerfectScrollbarDirective;
+    private _sisdaPerfectScrollbar: SisdaPerfectScrollbarDirective;
     private _unsubscribeAll: Subject<any>;
 
     constructor(
-        private _sigsdaConfigService: SigsdaConfigService,
-        private _sigsdaNavigationService: SigsdaNavigationService,
-        private _sigsdaSidebarService: SigsdaSidebarService,
+        private _sisdaConfigService: SisdaConfigService,
+        private _sisdaNavigationService: SisdaNavigationService,
+        private _sisdaSidebarService: SisdaSidebarService,
         private _router: Router
     ) {
         this._unsubscribeAll = new Subject();
     }
 
 
-    @ViewChild(SigsdaPerfectScrollbarDirective, { static: true })
-    set directive(theDirective: SigsdaPerfectScrollbarDirective) {
+    @ViewChild(SisdaPerfectScrollbarDirective, { static: true })
+    set directive(theDirective: SisdaPerfectScrollbarDirective) {
         if (!theDirective) {
             return;
         }
 
-        this._sigsdaPerfectScrollbar = theDirective;
-        this._sigsdaNavigationService.onItemCollapseToggled
+        this._sisdaPerfectScrollbar = theDirective;
+        this._sisdaNavigationService.onItemCollapseToggled
             .pipe(
                 delay(500),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe(() => {
-                this._sigsdaPerfectScrollbar.update();
+                this._sisdaPerfectScrollbar.update();
             });
 
         this._router.events
@@ -54,7 +54,7 @@ export class NavbarLeftComponent implements OnInit, OnDestroy {
             )
             .subscribe(() => {
                 setTimeout(() => {
-                    this._sigsdaPerfectScrollbar.scrollToElement('navbar .nav-link.active', -120);
+                    this._sisdaPerfectScrollbar.scrollToElement('navbar .nav-link.active', -120);
                 });
             }
             );
@@ -67,25 +67,25 @@ export class NavbarLeftComponent implements OnInit, OnDestroy {
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe(() => {
-                if (this._sigsdaSidebarService.getSidebar('navbar')) {
-                    this._sigsdaSidebarService.getSidebar('navbar').close();
+                if (this._sisdaSidebarService.getSidebar('navbar')) {
+                    this._sisdaSidebarService.getSidebar('navbar').close();
                 }
             }
             );
 
-        this._sigsdaConfigService.config
+        this._sisdaConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe((config) => {
-                this.sigsdaConfig = config;
+                this.sisdaConfig = config;
             });
 
-        this._sigsdaNavigationService.onNavigationChanged
+        this._sisdaNavigationService.onNavigationChanged
             .pipe(
                 filter(value => value !== null),
                 takeUntil(this._unsubscribeAll)
             )
             .subscribe(() => {
-                this.navigation = this._sigsdaNavigationService.getCurrentNavigation();
+                this.navigation = this._sisdaNavigationService.getCurrentNavigation();
             });
     }
 
@@ -95,10 +95,10 @@ export class NavbarLeftComponent implements OnInit, OnDestroy {
     }
 
     toggleSidebarOpened(): void {
-        this._sigsdaSidebarService.getSidebar('navbar').toggleOpen();
+        this._sisdaSidebarService.getSidebar('navbar').toggleOpen();
     }
 
     toggleSidebarFolded(): void {
-        this._sigsdaSidebarService.getSidebar('navbar').toggleFold();
+        this._sisdaSidebarService.getSidebar('navbar').toggleFold();
     }
 }

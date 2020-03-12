@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sigsda-escalafon-list',
+  selector: 'sisda-escalafon-list',
   templateUrl: './escalafon-list.component.html',
   styleUrls: ['./escalafon-list.component.scss']
 })

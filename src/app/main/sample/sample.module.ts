@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { SigsdaSharedModule } from '@sigsda/shared.module';
+import { SisdaSharedModule } from '@sisda/shared.module';
 
 import { SampleComponent } from './sample.component';
 
@@ -18,7 +18,7 @@ const routes = [
     ],
     imports     : [
         RouterModule.forChild(routes),
-        SigsdaSharedModule
+        SisdaSharedModule
     ],
     exports     : [
         SampleComponent

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sigsda-user-menu',
+  selector: 'sisda-user-menu',
   templateUrl: './user-menu.component.html',
   styleUrls: ['./user-menu.component.scss']
 })
